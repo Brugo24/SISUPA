@@ -5,7 +5,7 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
   return (
     <html lang="pt-br">
       <body className="flex h-screen flex-col md:overflow-hidden">
-            <header className="h-[43px] bg-blue-400 flex items-center px-6 text-white">
+            <header className="h-10.75 bg-blue-400 flex items-center px-6 text-white">
               <p>SISUPA</p>
             </header>
 

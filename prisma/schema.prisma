@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "./lib/generated/prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  corpo     String
+  imagens   String?  // Opcional (caso um post não tenha imagem)
+  projetoId Int      @map("projeto") // Mapeia a coluna 'projeto' do banco para 'projetoId' no código
+  status    String
+  postadoEm DateTime @default(now()) @map("postado_em")
+
+  // Relação: Um Post pertence a um Projeto
+  projeto   Projeto  @relation(fields: [projetoId], references: [id])
+
+  @@map("posts") // Garante que a tabela no PostgreSQL se chamará 'posts'
+}
+
+model Projeto {
+  id                 Int                @id @default(autoincrement())
+  nome               String
+  descricao          String?
+  foto               String?            // Opcional
+  banner             String?            // Opcional
+  contato            String?            // Opcional
+  
+  // Relações reversas (Um projeto tem vários posts, membros, etc.)
+  posts              Post[]
+  membros            Membro[]
+  processosSeletivos ProcessoSeletivo[]
+  eventos            Evento[]
+
+  @@map("projeto")
+}
+
+model Usuario {
+  id      Int      @id @default(autoincrement())
+  RA      Int
+  nome    String
+  
+  // Relação reversa com a tabela pivot de membros
+  membros Membro[]
+
+  @@map("usuario")
+}
+
+// Tabela pivot (Many-to-Many) com campos adicionais (cargo e admissao)
+model Membro {
+  idUser   Int @map("id_user")
+  idProj   Int @map("id_proj")
+  cargo    String
+  admissao DateTime
+
+  // Configuração das chaves estrangeiras
+  usuario  Usuario  @relation(fields: [idUser], references: [id])
+  projeto  Projeto  @relation(fields: [idProj], references: [id])
+
+  @@id([idUser, idProj]) // Chave primária composta (idUser + idProj) como você definiu
+  @@map("membro")
+}
+
+model ProcessoSeletivo {
+  id         Int      @id @default(autoincrement())
+  projetoId  Int      @map("projeto")
+  titulo     String
+  descricao  String
+  inscricao  String
+  dataLimite DateTime @map("data_limite")
+  postadoEm DateTime @default(now()) @map("postado_em")
+
+  // Relação: Um Processo Seletivo pertence a um Projeto
+  projeto    Projeto  @relation(fields: [projetoId], references: [id])
+
+  @@map("processo_seletivo")
+}
+
+model Evento {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  descricao String
+  local     String
+  data      DateTime
+  horario   DateTime
+  projetoId Int      @map("projeto")
+
+  // Relação: Um Evento pertence a um Projeto
+  projeto   Projeto  @relation(fields: [projetoId], references: [id])
+
+  @@map("evento")
+}
