@@ -20,25 +20,13 @@ export type ProcessoSeletivoModel = runtime.Types.Result.DefaultSelection<Prisma
 
 export type AggregateProcessoSeletivo = {
   _count: ProcessoSeletivoCountAggregateOutputType | null
-  _avg: ProcessoSeletivoAvgAggregateOutputType | null
-  _sum: ProcessoSeletivoSumAggregateOutputType | null
   _min: ProcessoSeletivoMinAggregateOutputType | null
   _max: ProcessoSeletivoMaxAggregateOutputType | null
 }
 
-export type ProcessoSeletivoAvgAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
-export type ProcessoSeletivoSumAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
 export type ProcessoSeletivoMinAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
+  id: string | null
+  projetoId: string | null
   titulo: string | null
   descricao: string | null
   inscricao: string | null
@@ -47,8 +35,8 @@ export type ProcessoSeletivoMinAggregateOutputType = {
 }
 
 export type ProcessoSeletivoMaxAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
+  id: string | null
+  projetoId: string | null
   titulo: string | null
   descricao: string | null
   inscricao: string | null
@@ -67,16 +55,6 @@ export type ProcessoSeletivoCountAggregateOutputType = {
   _all: number
 }
 
-
-export type ProcessoSeletivoAvgAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
-
-export type ProcessoSeletivoSumAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
 
 export type ProcessoSeletivoMinAggregateInputType = {
   id?: true
@@ -147,18 +125,6 @@ export type ProcessoSeletivoAggregateArgs<ExtArgs extends runtime.Types.Extensio
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ProcessoSeletivoAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ProcessoSeletivoSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ProcessoSeletivoMinAggregateInputType
@@ -189,23 +155,19 @@ export type ProcessoSeletivoGroupByArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   _count?: ProcessoSeletivoCountAggregateInputType | true
-  _avg?: ProcessoSeletivoAvgAggregateInputType
-  _sum?: ProcessoSeletivoSumAggregateInputType
   _min?: ProcessoSeletivoMinAggregateInputType
   _max?: ProcessoSeletivoMaxAggregateInputType
 }
 
 export type ProcessoSeletivoGroupByOutputType = {
-  id: number
-  projetoId: number
+  id: string
+  projetoId: string
   titulo: string
   descricao: string
   inscricao: string
   dataLimite: Date
   postadoEm: Date
   _count: ProcessoSeletivoCountAggregateOutputType | null
-  _avg: ProcessoSeletivoAvgAggregateOutputType | null
-  _sum: ProcessoSeletivoSumAggregateOutputType | null
   _min: ProcessoSeletivoMinAggregateOutputType | null
   _max: ProcessoSeletivoMaxAggregateOutputType | null
 }
@@ -229,8 +191,8 @@ export type ProcessoSeletivoWhereInput = {
   AND?: Prisma.ProcessoSeletivoWhereInput | Prisma.ProcessoSeletivoWhereInput[]
   OR?: Prisma.ProcessoSeletivoWhereInput[]
   NOT?: Prisma.ProcessoSeletivoWhereInput | Prisma.ProcessoSeletivoWhereInput[]
-  id?: Prisma.IntFilter<"ProcessoSeletivo"> | number
-  projetoId?: Prisma.IntFilter<"ProcessoSeletivo"> | number
+  id?: Prisma.StringFilter<"ProcessoSeletivo"> | string
+  projetoId?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   titulo?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   descricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
@@ -251,11 +213,11 @@ export type ProcessoSeletivoOrderByWithRelationInput = {
 }
 
 export type ProcessoSeletivoWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   AND?: Prisma.ProcessoSeletivoWhereInput | Prisma.ProcessoSeletivoWhereInput[]
   OR?: Prisma.ProcessoSeletivoWhereInput[]
   NOT?: Prisma.ProcessoSeletivoWhereInput | Prisma.ProcessoSeletivoWhereInput[]
-  projetoId?: Prisma.IntFilter<"ProcessoSeletivo"> | number
+  projetoId?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   titulo?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   descricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
@@ -273,18 +235,16 @@ export type ProcessoSeletivoOrderByWithAggregationInput = {
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
   _count?: Prisma.ProcessoSeletivoCountOrderByAggregateInput
-  _avg?: Prisma.ProcessoSeletivoAvgOrderByAggregateInput
   _max?: Prisma.ProcessoSeletivoMaxOrderByAggregateInput
   _min?: Prisma.ProcessoSeletivoMinOrderByAggregateInput
-  _sum?: Prisma.ProcessoSeletivoSumOrderByAggregateInput
 }
 
 export type ProcessoSeletivoScalarWhereWithAggregatesInput = {
   AND?: Prisma.ProcessoSeletivoScalarWhereWithAggregatesInput | Prisma.ProcessoSeletivoScalarWhereWithAggregatesInput[]
   OR?: Prisma.ProcessoSeletivoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProcessoSeletivoScalarWhereWithAggregatesInput | Prisma.ProcessoSeletivoScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"ProcessoSeletivo"> | number
-  projetoId?: Prisma.IntWithAggregatesFilter<"ProcessoSeletivo"> | number
+  id?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
+  projetoId?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
   titulo?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
   descricao?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
   inscricao?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
@@ -293,6 +253,7 @@ export type ProcessoSeletivoScalarWhereWithAggregatesInput = {
 }
 
 export type ProcessoSeletivoCreateInput = {
+  id?: string
   titulo: string
   descricao: string
   inscricao: string
@@ -302,8 +263,8 @@ export type ProcessoSeletivoCreateInput = {
 }
 
 export type ProcessoSeletivoUncheckedCreateInput = {
-  id?: number
-  projetoId: number
+  id?: string
+  projetoId: string
   titulo: string
   descricao: string
   inscricao: string
@@ -312,6 +273,7 @@ export type ProcessoSeletivoUncheckedCreateInput = {
 }
 
 export type ProcessoSeletivoUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -321,8 +283,8 @@ export type ProcessoSeletivoUpdateInput = {
 }
 
 export type ProcessoSeletivoUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -331,8 +293,8 @@ export type ProcessoSeletivoUncheckedUpdateInput = {
 }
 
 export type ProcessoSeletivoCreateManyInput = {
-  id?: number
-  projetoId: number
+  id?: string
+  projetoId: string
   titulo: string
   descricao: string
   inscricao: string
@@ -341,6 +303,7 @@ export type ProcessoSeletivoCreateManyInput = {
 }
 
 export type ProcessoSeletivoUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -349,8 +312,8 @@ export type ProcessoSeletivoUpdateManyMutationInput = {
 }
 
 export type ProcessoSeletivoUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -378,11 +341,6 @@ export type ProcessoSeletivoCountOrderByAggregateInput = {
   postadoEm?: Prisma.SortOrder
 }
 
-export type ProcessoSeletivoAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
-}
-
 export type ProcessoSeletivoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
@@ -401,11 +359,6 @@ export type ProcessoSeletivoMinOrderByAggregateInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
-}
-
-export type ProcessoSeletivoSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
 }
 
 export type ProcessoSeletivoCreateNestedManyWithoutProjetoInput = {
@@ -451,6 +404,7 @@ export type ProcessoSeletivoUncheckedUpdateManyWithoutProjetoNestedInput = {
 }
 
 export type ProcessoSeletivoCreateWithoutProjetoInput = {
+  id?: string
   titulo: string
   descricao: string
   inscricao: string
@@ -459,7 +413,7 @@ export type ProcessoSeletivoCreateWithoutProjetoInput = {
 }
 
 export type ProcessoSeletivoUncheckedCreateWithoutProjetoInput = {
-  id?: number
+  id?: string
   titulo: string
   descricao: string
   inscricao: string
@@ -497,8 +451,8 @@ export type ProcessoSeletivoScalarWhereInput = {
   AND?: Prisma.ProcessoSeletivoScalarWhereInput | Prisma.ProcessoSeletivoScalarWhereInput[]
   OR?: Prisma.ProcessoSeletivoScalarWhereInput[]
   NOT?: Prisma.ProcessoSeletivoScalarWhereInput | Prisma.ProcessoSeletivoScalarWhereInput[]
-  id?: Prisma.IntFilter<"ProcessoSeletivo"> | number
-  projetoId?: Prisma.IntFilter<"ProcessoSeletivo"> | number
+  id?: Prisma.StringFilter<"ProcessoSeletivo"> | string
+  projetoId?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   titulo?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   descricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
@@ -507,7 +461,7 @@ export type ProcessoSeletivoScalarWhereInput = {
 }
 
 export type ProcessoSeletivoCreateManyProjetoInput = {
-  id?: number
+  id?: string
   titulo: string
   descricao: string
   inscricao: string
@@ -516,6 +470,7 @@ export type ProcessoSeletivoCreateManyProjetoInput = {
 }
 
 export type ProcessoSeletivoUpdateWithoutProjetoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -524,7 +479,7 @@ export type ProcessoSeletivoUpdateWithoutProjetoInput = {
 }
 
 export type ProcessoSeletivoUncheckedUpdateWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -533,7 +488,7 @@ export type ProcessoSeletivoUncheckedUpdateWithoutProjetoInput = {
 }
 
 export type ProcessoSeletivoUncheckedUpdateManyWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
@@ -603,8 +558,8 @@ export type $ProcessoSeletivoPayload<ExtArgs extends runtime.Types.Extensions.In
     projeto: Prisma.$ProjetoPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
-    projetoId: number
+    id: string
+    projetoId: string
     titulo: string
     descricao: string
     inscricao: string
@@ -1034,8 +989,8 @@ export interface Prisma__ProcessoSeletivoClient<T, Null = never, ExtArgs extends
  * Fields of the ProcessoSeletivo model
  */
 export interface ProcessoSeletivoFieldRefs {
-  readonly id: Prisma.FieldRef<"ProcessoSeletivo", 'Int'>
-  readonly projetoId: Prisma.FieldRef<"ProcessoSeletivo", 'Int'>
+  readonly id: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
+  readonly projetoId: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
   readonly titulo: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
   readonly descricao: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
   readonly inscricao: Prisma.FieldRef<"ProcessoSeletivo", 'String'>

@@ -13,11 +13,11 @@ datasource db {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        String      @id @default(cuid())
   titulo    String
   corpo     String
   imagens   String?  // Opcional (caso um post não tenha imagem)
-  projetoId Int      @map("projeto") // Mapeia a coluna 'projeto' do banco para 'projetoId' no código
+  projetoId String      @map("projeto") // Mapeia a coluna 'projeto' do banco para 'projetoId' no código
   status    String
   postadoEm DateTime @default(now()) @map("postado_em")
 
@@ -28,7 +28,7 @@ model Post {
 }
 
 model Projeto {
-  id                 Int                @id @default(autoincrement())
+  id                 String                @id @default(cuid())
   nome               String
   descricao          String?
   foto               String?            // Opcional
@@ -45,7 +45,7 @@ model Projeto {
 }
 
 model Usuario {
-  id      Int      @id @default(autoincrement())
+  id      String      @id @default(cuid())
   RA      Int
   nome    String
   
@@ -57,8 +57,8 @@ model Usuario {
 
 // Tabela pivot (Many-to-Many) com campos adicionais (cargo e admissao)
 model Membro {
-  idUser   Int @map("id_user")
-  idProj   Int @map("id_proj")
+  idUser   String @map("id_user")
+  idProj   String @map("id_proj")
   cargo    String
   admissao DateTime
 
@@ -71,8 +71,8 @@ model Membro {
 }
 
 model ProcessoSeletivo {
-  id         Int      @id @default(autoincrement())
-  projetoId  Int      @map("projeto")
+  id         String      @id @default(cuid())
+  projetoId  String      @map("projeto")
   titulo     String
   descricao  String
   inscricao  String
@@ -86,13 +86,13 @@ model ProcessoSeletivo {
 }
 
 model Evento {
-  id        Int      @id @default(autoincrement())
+  id        String     @id @default(cuid())
   nome      String
   descricao String
   local     String
   data      DateTime
   horario   DateTime
-  projetoId Int      @map("projeto")
+  projetoId String      @map("projeto")
 
   // Relação: Um Evento pertence a um Projeto
   projeto   Projeto  @relation(fields: [projetoId], references: [id])

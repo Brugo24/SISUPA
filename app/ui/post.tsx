@@ -1,8 +1,9 @@
-import { fetchPosts } from "../lib/data";
+import { PostComProjeto } from "../lib/definitions";
 import Image from "next/image";
 
-export default async function Post(){
-    const post = await fetchPosts();
+export default function PostComponent({post} : {post : PostComProjeto}){
+
+    const postImgs = post?.imagens ? post.imagens.split(',') : [];
     return(
         <div className="p-3 bg-blue-500 m-2">
             <Image 
@@ -14,12 +15,19 @@ export default async function Post(){
             <h1>{post?.titulo}</h1>
             <p>{post?.corpo}</p>
             <p>{post?.projeto.nome}</p>
-            <Image
-                src={post?.imagens || "../public/placeholder_imgs/placeholder.png"} 
-                alt= "Fotos do post"
-                width={400}
-                height={400}
-            />
+           <div>
+                {postImgs.map((imagem, index) => {
+                    return(
+                        <Image
+                            key={index}
+                            src={imagem}
+                            alt = "Imagem do post"
+                            width={200}
+                            height={200} 
+                        />
+                    )
+                })}
+           </div>
         </div>
     )
 }

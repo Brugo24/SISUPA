@@ -20,22 +20,12 @@ export type ProjetoModel = runtime.Types.Result.DefaultSelection<Prisma.$Projeto
 
 export type AggregateProjeto = {
   _count: ProjetoCountAggregateOutputType | null
-  _avg: ProjetoAvgAggregateOutputType | null
-  _sum: ProjetoSumAggregateOutputType | null
   _min: ProjetoMinAggregateOutputType | null
   _max: ProjetoMaxAggregateOutputType | null
 }
 
-export type ProjetoAvgAggregateOutputType = {
-  id: number | null
-}
-
-export type ProjetoSumAggregateOutputType = {
-  id: number | null
-}
-
 export type ProjetoMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   nome: string | null
   descricao: string | null
   foto: string | null
@@ -44,7 +34,7 @@ export type ProjetoMinAggregateOutputType = {
 }
 
 export type ProjetoMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   nome: string | null
   descricao: string | null
   foto: string | null
@@ -62,14 +52,6 @@ export type ProjetoCountAggregateOutputType = {
   _all: number
 }
 
-
-export type ProjetoAvgAggregateInputType = {
-  id?: true
-}
-
-export type ProjetoSumAggregateInputType = {
-  id?: true
-}
 
 export type ProjetoMinAggregateInputType = {
   id?: true
@@ -137,18 +119,6 @@ export type ProjetoAggregateArgs<ExtArgs extends runtime.Types.Extensions.Intern
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ProjetoAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ProjetoSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ProjetoMinAggregateInputType
@@ -179,22 +149,18 @@ export type ProjetoGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   _count?: ProjetoCountAggregateInputType | true
-  _avg?: ProjetoAvgAggregateInputType
-  _sum?: ProjetoSumAggregateInputType
   _min?: ProjetoMinAggregateInputType
   _max?: ProjetoMaxAggregateInputType
 }
 
 export type ProjetoGroupByOutputType = {
-  id: number
+  id: string
   nome: string
   descricao: string | null
   foto: string | null
   banner: string | null
   contato: string | null
   _count: ProjetoCountAggregateOutputType | null
-  _avg: ProjetoAvgAggregateOutputType | null
-  _sum: ProjetoSumAggregateOutputType | null
   _min: ProjetoMinAggregateOutputType | null
   _max: ProjetoMaxAggregateOutputType | null
 }
@@ -218,7 +184,7 @@ export type ProjetoWhereInput = {
   AND?: Prisma.ProjetoWhereInput | Prisma.ProjetoWhereInput[]
   OR?: Prisma.ProjetoWhereInput[]
   NOT?: Prisma.ProjetoWhereInput | Prisma.ProjetoWhereInput[]
-  id?: Prisma.IntFilter<"Projeto"> | number
+  id?: Prisma.StringFilter<"Projeto"> | string
   nome?: Prisma.StringFilter<"Projeto"> | string
   descricao?: Prisma.StringNullableFilter<"Projeto"> | string | null
   foto?: Prisma.StringNullableFilter<"Projeto"> | string | null
@@ -244,7 +210,7 @@ export type ProjetoOrderByWithRelationInput = {
 }
 
 export type ProjetoWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   AND?: Prisma.ProjetoWhereInput | Prisma.ProjetoWhereInput[]
   OR?: Prisma.ProjetoWhereInput[]
   NOT?: Prisma.ProjetoWhereInput | Prisma.ProjetoWhereInput[]
@@ -267,17 +233,15 @@ export type ProjetoOrderByWithAggregationInput = {
   banner?: Prisma.SortOrderInput | Prisma.SortOrder
   contato?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProjetoCountOrderByAggregateInput
-  _avg?: Prisma.ProjetoAvgOrderByAggregateInput
   _max?: Prisma.ProjetoMaxOrderByAggregateInput
   _min?: Prisma.ProjetoMinOrderByAggregateInput
-  _sum?: Prisma.ProjetoSumOrderByAggregateInput
 }
 
 export type ProjetoScalarWhereWithAggregatesInput = {
   AND?: Prisma.ProjetoScalarWhereWithAggregatesInput | Prisma.ProjetoScalarWhereWithAggregatesInput[]
   OR?: Prisma.ProjetoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ProjetoScalarWhereWithAggregatesInput | Prisma.ProjetoScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Projeto"> | number
+  id?: Prisma.StringWithAggregatesFilter<"Projeto"> | string
   nome?: Prisma.StringWithAggregatesFilter<"Projeto"> | string
   descricao?: Prisma.StringNullableWithAggregatesFilter<"Projeto"> | string | null
   foto?: Prisma.StringNullableWithAggregatesFilter<"Projeto"> | string | null
@@ -286,6 +250,7 @@ export type ProjetoScalarWhereWithAggregatesInput = {
 }
 
 export type ProjetoCreateInput = {
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -298,7 +263,7 @@ export type ProjetoCreateInput = {
 }
 
 export type ProjetoUncheckedCreateInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -311,6 +276,7 @@ export type ProjetoUncheckedCreateInput = {
 }
 
 export type ProjetoUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -323,7 +289,7 @@ export type ProjetoUpdateInput = {
 }
 
 export type ProjetoUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -336,7 +302,7 @@ export type ProjetoUncheckedUpdateInput = {
 }
 
 export type ProjetoCreateManyInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -345,6 +311,7 @@ export type ProjetoCreateManyInput = {
 }
 
 export type ProjetoUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -353,7 +320,7 @@ export type ProjetoUpdateManyMutationInput = {
 }
 
 export type ProjetoUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -375,10 +342,6 @@ export type ProjetoCountOrderByAggregateInput = {
   contato?: Prisma.SortOrder
 }
 
-export type ProjetoAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-}
-
 export type ProjetoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
@@ -395,10 +358,6 @@ export type ProjetoMinOrderByAggregateInput = {
   foto?: Prisma.SortOrder
   banner?: Prisma.SortOrder
   contato?: Prisma.SortOrder
-}
-
-export type ProjetoSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
 }
 
 export type ProjetoCreateNestedOneWithoutPostsInput = {
@@ -458,6 +417,7 @@ export type ProjetoUpdateOneRequiredWithoutEventosNestedInput = {
 }
 
 export type ProjetoCreateWithoutPostsInput = {
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -469,7 +429,7 @@ export type ProjetoCreateWithoutPostsInput = {
 }
 
 export type ProjetoUncheckedCreateWithoutPostsInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -497,6 +457,7 @@ export type ProjetoUpdateToOneWithWhereWithoutPostsInput = {
 }
 
 export type ProjetoUpdateWithoutPostsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -508,7 +469,7 @@ export type ProjetoUpdateWithoutPostsInput = {
 }
 
 export type ProjetoUncheckedUpdateWithoutPostsInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -520,6 +481,7 @@ export type ProjetoUncheckedUpdateWithoutPostsInput = {
 }
 
 export type ProjetoCreateWithoutMembrosInput = {
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -531,7 +493,7 @@ export type ProjetoCreateWithoutMembrosInput = {
 }
 
 export type ProjetoUncheckedCreateWithoutMembrosInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -559,6 +521,7 @@ export type ProjetoUpdateToOneWithWhereWithoutMembrosInput = {
 }
 
 export type ProjetoUpdateWithoutMembrosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -570,7 +533,7 @@ export type ProjetoUpdateWithoutMembrosInput = {
 }
 
 export type ProjetoUncheckedUpdateWithoutMembrosInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -582,6 +545,7 @@ export type ProjetoUncheckedUpdateWithoutMembrosInput = {
 }
 
 export type ProjetoCreateWithoutProcessosSeletivosInput = {
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -593,7 +557,7 @@ export type ProjetoCreateWithoutProcessosSeletivosInput = {
 }
 
 export type ProjetoUncheckedCreateWithoutProcessosSeletivosInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -621,6 +585,7 @@ export type ProjetoUpdateToOneWithWhereWithoutProcessosSeletivosInput = {
 }
 
 export type ProjetoUpdateWithoutProcessosSeletivosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -632,7 +597,7 @@ export type ProjetoUpdateWithoutProcessosSeletivosInput = {
 }
 
 export type ProjetoUncheckedUpdateWithoutProcessosSeletivosInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -644,6 +609,7 @@ export type ProjetoUncheckedUpdateWithoutProcessosSeletivosInput = {
 }
 
 export type ProjetoCreateWithoutEventosInput = {
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -655,7 +621,7 @@ export type ProjetoCreateWithoutEventosInput = {
 }
 
 export type ProjetoUncheckedCreateWithoutEventosInput = {
-  id?: number
+  id?: string
   nome: string
   descricao?: string | null
   foto?: string | null
@@ -683,6 +649,7 @@ export type ProjetoUpdateToOneWithWhereWithoutEventosInput = {
 }
 
 export type ProjetoUpdateWithoutEventosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -694,7 +661,7 @@ export type ProjetoUpdateWithoutEventosInput = {
 }
 
 export type ProjetoUncheckedUpdateWithoutEventosInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -824,7 +791,7 @@ export type $ProjetoPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     eventos: Prisma.$EventoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     nome: string
     descricao: string | null
     foto: string | null
@@ -1257,7 +1224,7 @@ export interface Prisma__ProjetoClient<T, Null = never, ExtArgs extends runtime.
  * Fields of the Projeto model
  */
 export interface ProjetoFieldRefs {
-  readonly id: Prisma.FieldRef<"Projeto", 'Int'>
+  readonly id: Prisma.FieldRef<"Projeto", 'String'>
   readonly nome: Prisma.FieldRef<"Projeto", 'String'>
   readonly descricao: Prisma.FieldRef<"Projeto", 'String'>
   readonly foto: Prisma.FieldRef<"Projeto", 'String'>

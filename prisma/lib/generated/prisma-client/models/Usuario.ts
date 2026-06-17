@@ -27,23 +27,21 @@ export type AggregateUsuario = {
 }
 
 export type UsuarioAvgAggregateOutputType = {
-  id: number | null
   RA: number | null
 }
 
 export type UsuarioSumAggregateOutputType = {
-  id: number | null
   RA: number | null
 }
 
 export type UsuarioMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   RA: number | null
   nome: string | null
 }
 
 export type UsuarioMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   RA: number | null
   nome: string | null
 }
@@ -57,12 +55,10 @@ export type UsuarioCountAggregateOutputType = {
 
 
 export type UsuarioAvgAggregateInputType = {
-  id?: true
   RA?: true
 }
 
 export type UsuarioSumAggregateInputType = {
-  id?: true
   RA?: true
 }
 
@@ -172,7 +168,7 @@ export type UsuarioGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 }
 
 export type UsuarioGroupByOutputType = {
-  id: number
+  id: string
   RA: number
   nome: string
   _count: UsuarioCountAggregateOutputType | null
@@ -201,7 +197,7 @@ export type UsuarioWhereInput = {
   AND?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
   OR?: Prisma.UsuarioWhereInput[]
   NOT?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
-  id?: Prisma.IntFilter<"Usuario"> | number
+  id?: Prisma.StringFilter<"Usuario"> | string
   RA?: Prisma.IntFilter<"Usuario"> | number
   nome?: Prisma.StringFilter<"Usuario"> | string
   membros?: Prisma.MembroListRelationFilter
@@ -215,7 +211,7 @@ export type UsuarioOrderByWithRelationInput = {
 }
 
 export type UsuarioWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   AND?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
   OR?: Prisma.UsuarioWhereInput[]
   NOT?: Prisma.UsuarioWhereInput | Prisma.UsuarioWhereInput[]
@@ -239,50 +235,53 @@ export type UsuarioScalarWhereWithAggregatesInput = {
   AND?: Prisma.UsuarioScalarWhereWithAggregatesInput | Prisma.UsuarioScalarWhereWithAggregatesInput[]
   OR?: Prisma.UsuarioScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UsuarioScalarWhereWithAggregatesInput | Prisma.UsuarioScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Usuario"> | number
+  id?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
   RA?: Prisma.IntWithAggregatesFilter<"Usuario"> | number
   nome?: Prisma.StringWithAggregatesFilter<"Usuario"> | string
 }
 
 export type UsuarioCreateInput = {
+  id?: string
   RA: number
   nome: string
   membros?: Prisma.MembroCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUncheckedCreateInput = {
-  id?: number
+  id?: string
   RA: number
   nome: string
   membros?: Prisma.MembroUncheckedCreateNestedManyWithoutUsuarioInput
 }
 
 export type UsuarioUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   membros?: Prisma.MembroUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   membros?: Prisma.MembroUncheckedUpdateManyWithoutUsuarioNestedInput
 }
 
 export type UsuarioCreateManyInput = {
-  id?: number
+  id?: string
   RA: number
   nome: string
 }
 
 export type UsuarioUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UsuarioUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -294,7 +293,6 @@ export type UsuarioCountOrderByAggregateInput = {
 }
 
 export type UsuarioAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   RA?: Prisma.SortOrder
 }
 
@@ -311,13 +309,20 @@ export type UsuarioMinOrderByAggregateInput = {
 }
 
 export type UsuarioSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   RA?: Prisma.SortOrder
 }
 
 export type UsuarioScalarRelationFilter = {
   is?: Prisma.UsuarioWhereInput
   isNot?: Prisma.UsuarioWhereInput
+}
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type UsuarioCreateNestedOneWithoutMembrosInput = {
@@ -335,12 +340,13 @@ export type UsuarioUpdateOneRequiredWithoutMembrosNestedInput = {
 }
 
 export type UsuarioCreateWithoutMembrosInput = {
+  id?: string
   RA: number
   nome: string
 }
 
 export type UsuarioUncheckedCreateWithoutMembrosInput = {
-  id?: number
+  id?: string
   RA: number
   nome: string
 }
@@ -362,12 +368,13 @@ export type UsuarioUpdateToOneWithWhereWithoutMembrosInput = {
 }
 
 export type UsuarioUpdateWithoutMembrosInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type UsuarioUncheckedUpdateWithoutMembrosInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   RA?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
 }
@@ -443,7 +450,7 @@ export type $UsuarioPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     membros: Prisma.$MembroPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     RA: number
     nome: string
   }, ExtArgs["result"]["usuario"]>
@@ -870,7 +877,7 @@ export interface Prisma__UsuarioClient<T, Null = never, ExtArgs extends runtime.
  * Fields of the Usuario model
  */
 export interface UsuarioFieldRefs {
-  readonly id: Prisma.FieldRef<"Usuario", 'Int'>
+  readonly id: Prisma.FieldRef<"Usuario", 'String'>
   readonly RA: Prisma.FieldRef<"Usuario", 'Int'>
   readonly nome: Prisma.FieldRef<"Usuario", 'String'>
 }

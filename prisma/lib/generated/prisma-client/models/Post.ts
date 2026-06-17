@@ -20,38 +20,26 @@ export type PostModel = runtime.Types.Result.DefaultSelection<Prisma.$PostPayloa
 
 export type AggregatePost = {
   _count: PostCountAggregateOutputType | null
-  _avg: PostAvgAggregateOutputType | null
-  _sum: PostSumAggregateOutputType | null
   _min: PostMinAggregateOutputType | null
   _max: PostMaxAggregateOutputType | null
 }
 
-export type PostAvgAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
-export type PostSumAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
 export type PostMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   titulo: string | null
   corpo: string | null
   imagens: string | null
-  projetoId: number | null
+  projetoId: string | null
   status: string | null
   postadoEm: Date | null
 }
 
 export type PostMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   titulo: string | null
   corpo: string | null
   imagens: string | null
-  projetoId: number | null
+  projetoId: string | null
   status: string | null
   postadoEm: Date | null
 }
@@ -67,16 +55,6 @@ export type PostCountAggregateOutputType = {
   _all: number
 }
 
-
-export type PostAvgAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
-
-export type PostSumAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
 
 export type PostMinAggregateInputType = {
   id?: true
@@ -147,18 +125,6 @@ export type PostAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: PostAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: PostSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: PostMinAggregateInputType
@@ -189,23 +155,19 @@ export type PostGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
   take?: number
   skip?: number
   _count?: PostCountAggregateInputType | true
-  _avg?: PostAvgAggregateInputType
-  _sum?: PostSumAggregateInputType
   _min?: PostMinAggregateInputType
   _max?: PostMaxAggregateInputType
 }
 
 export type PostGroupByOutputType = {
-  id: number
+  id: string
   titulo: string
   corpo: string
   imagens: string | null
-  projetoId: number
+  projetoId: string
   status: string
   postadoEm: Date
   _count: PostCountAggregateOutputType | null
-  _avg: PostAvgAggregateOutputType | null
-  _sum: PostSumAggregateOutputType | null
   _min: PostMinAggregateOutputType | null
   _max: PostMaxAggregateOutputType | null
 }
@@ -229,11 +191,11 @@ export type PostWhereInput = {
   AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
   OR?: Prisma.PostWhereInput[]
   NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
-  id?: Prisma.IntFilter<"Post"> | number
+  id?: Prisma.StringFilter<"Post"> | string
   titulo?: Prisma.StringFilter<"Post"> | string
   corpo?: Prisma.StringFilter<"Post"> | string
   imagens?: Prisma.StringNullableFilter<"Post"> | string | null
-  projetoId?: Prisma.IntFilter<"Post"> | number
+  projetoId?: Prisma.StringFilter<"Post"> | string
   status?: Prisma.StringFilter<"Post"> | string
   postadoEm?: Prisma.DateTimeFilter<"Post"> | Date | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
@@ -251,14 +213,14 @@ export type PostOrderByWithRelationInput = {
 }
 
 export type PostWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   AND?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
   OR?: Prisma.PostWhereInput[]
   NOT?: Prisma.PostWhereInput | Prisma.PostWhereInput[]
   titulo?: Prisma.StringFilter<"Post"> | string
   corpo?: Prisma.StringFilter<"Post"> | string
   imagens?: Prisma.StringNullableFilter<"Post"> | string | null
-  projetoId?: Prisma.IntFilter<"Post"> | number
+  projetoId?: Prisma.StringFilter<"Post"> | string
   status?: Prisma.StringFilter<"Post"> | string
   postadoEm?: Prisma.DateTimeFilter<"Post"> | Date | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
@@ -273,26 +235,25 @@ export type PostOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
   _count?: Prisma.PostCountOrderByAggregateInput
-  _avg?: Prisma.PostAvgOrderByAggregateInput
   _max?: Prisma.PostMaxOrderByAggregateInput
   _min?: Prisma.PostMinOrderByAggregateInput
-  _sum?: Prisma.PostSumOrderByAggregateInput
 }
 
 export type PostScalarWhereWithAggregatesInput = {
   AND?: Prisma.PostScalarWhereWithAggregatesInput | Prisma.PostScalarWhereWithAggregatesInput[]
   OR?: Prisma.PostScalarWhereWithAggregatesInput[]
   NOT?: Prisma.PostScalarWhereWithAggregatesInput | Prisma.PostScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Post"> | number
+  id?: Prisma.StringWithAggregatesFilter<"Post"> | string
   titulo?: Prisma.StringWithAggregatesFilter<"Post"> | string
   corpo?: Prisma.StringWithAggregatesFilter<"Post"> | string
   imagens?: Prisma.StringNullableWithAggregatesFilter<"Post"> | string | null
-  projetoId?: Prisma.IntWithAggregatesFilter<"Post"> | number
+  projetoId?: Prisma.StringWithAggregatesFilter<"Post"> | string
   status?: Prisma.StringWithAggregatesFilter<"Post"> | string
   postadoEm?: Prisma.DateTimeWithAggregatesFilter<"Post"> | Date | string
 }
 
 export type PostCreateInput = {
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
@@ -302,16 +263,17 @@ export type PostCreateInput = {
 }
 
 export type PostUncheckedCreateInput = {
-  id?: number
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
-  projetoId: number
+  projetoId: string
   status: string
   postadoEm?: Date | string
 }
 
 export type PostUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -321,26 +283,27 @@ export type PostUpdateInput = {
 }
 
 export type PostUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type PostCreateManyInput = {
-  id?: number
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
-  projetoId: number
+  projetoId: string
   status: string
   postadoEm?: Date | string
 }
 
 export type PostUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -349,11 +312,11 @@ export type PostUpdateManyMutationInput = {
 }
 
 export type PostUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.StringFieldUpdateOperationsInput | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -366,11 +329,6 @@ export type PostCountOrderByAggregateInput = {
   projetoId?: Prisma.SortOrder
   status?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
-}
-
-export type PostAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
 }
 
 export type PostMaxOrderByAggregateInput = {
@@ -393,11 +351,6 @@ export type PostMinOrderByAggregateInput = {
   postadoEm?: Prisma.SortOrder
 }
 
-export type PostSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
-}
-
 export type PostListRelationFilter = {
   every?: Prisma.PostWhereInput
   some?: Prisma.PostWhereInput
@@ -418,14 +371,6 @@ export type NullableStringFieldUpdateOperationsInput = {
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
 }
 
 export type PostCreateNestedManyWithoutProjetoInput = {
@@ -471,6 +416,7 @@ export type PostUncheckedUpdateManyWithoutProjetoNestedInput = {
 }
 
 export type PostCreateWithoutProjetoInput = {
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
@@ -479,7 +425,7 @@ export type PostCreateWithoutProjetoInput = {
 }
 
 export type PostUncheckedCreateWithoutProjetoInput = {
-  id?: number
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
@@ -517,17 +463,17 @@ export type PostScalarWhereInput = {
   AND?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
   OR?: Prisma.PostScalarWhereInput[]
   NOT?: Prisma.PostScalarWhereInput | Prisma.PostScalarWhereInput[]
-  id?: Prisma.IntFilter<"Post"> | number
+  id?: Prisma.StringFilter<"Post"> | string
   titulo?: Prisma.StringFilter<"Post"> | string
   corpo?: Prisma.StringFilter<"Post"> | string
   imagens?: Prisma.StringNullableFilter<"Post"> | string | null
-  projetoId?: Prisma.IntFilter<"Post"> | number
+  projetoId?: Prisma.StringFilter<"Post"> | string
   status?: Prisma.StringFilter<"Post"> | string
   postadoEm?: Prisma.DateTimeFilter<"Post"> | Date | string
 }
 
 export type PostCreateManyProjetoInput = {
-  id?: number
+  id?: string
   titulo: string
   corpo: string
   imagens?: string | null
@@ -536,6 +482,7 @@ export type PostCreateManyProjetoInput = {
 }
 
 export type PostUpdateWithoutProjetoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -544,7 +491,7 @@ export type PostUpdateWithoutProjetoInput = {
 }
 
 export type PostUncheckedUpdateWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -553,7 +500,7 @@ export type PostUncheckedUpdateWithoutProjetoInput = {
 }
 
 export type PostUncheckedUpdateManyWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   titulo?: Prisma.StringFieldUpdateOperationsInput | string
   corpo?: Prisma.StringFieldUpdateOperationsInput | string
   imagens?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -623,11 +570,11 @@ export type $PostPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     projeto: Prisma.$ProjetoPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     titulo: string
     corpo: string
     imagens: string | null
-    projetoId: number
+    projetoId: string
     status: string
     postadoEm: Date
   }, ExtArgs["result"]["post"]>
@@ -1054,11 +1001,11 @@ export interface Prisma__PostClient<T, Null = never, ExtArgs extends runtime.Typ
  * Fields of the Post model
  */
 export interface PostFieldRefs {
-  readonly id: Prisma.FieldRef<"Post", 'Int'>
+  readonly id: Prisma.FieldRef<"Post", 'String'>
   readonly titulo: Prisma.FieldRef<"Post", 'String'>
   readonly corpo: Prisma.FieldRef<"Post", 'String'>
   readonly imagens: Prisma.FieldRef<"Post", 'String'>
-  readonly projetoId: Prisma.FieldRef<"Post", 'Int'>
+  readonly projetoId: Prisma.FieldRef<"Post", 'String'>
   readonly status: Prisma.FieldRef<"Post", 'String'>
   readonly postadoEm: Prisma.FieldRef<"Post", 'DateTime'>
 }

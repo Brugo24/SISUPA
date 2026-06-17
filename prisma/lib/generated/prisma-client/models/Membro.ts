@@ -20,32 +20,20 @@ export type MembroModel = runtime.Types.Result.DefaultSelection<Prisma.$MembroPa
 
 export type AggregateMembro = {
   _count: MembroCountAggregateOutputType | null
-  _avg: MembroAvgAggregateOutputType | null
-  _sum: MembroSumAggregateOutputType | null
   _min: MembroMinAggregateOutputType | null
   _max: MembroMaxAggregateOutputType | null
 }
 
-export type MembroAvgAggregateOutputType = {
-  idUser: number | null
-  idProj: number | null
-}
-
-export type MembroSumAggregateOutputType = {
-  idUser: number | null
-  idProj: number | null
-}
-
 export type MembroMinAggregateOutputType = {
-  idUser: number | null
-  idProj: number | null
+  idUser: string | null
+  idProj: string | null
   cargo: string | null
   admissao: Date | null
 }
 
 export type MembroMaxAggregateOutputType = {
-  idUser: number | null
-  idProj: number | null
+  idUser: string | null
+  idProj: string | null
   cargo: string | null
   admissao: Date | null
 }
@@ -58,16 +46,6 @@ export type MembroCountAggregateOutputType = {
   _all: number
 }
 
-
-export type MembroAvgAggregateInputType = {
-  idUser?: true
-  idProj?: true
-}
-
-export type MembroSumAggregateInputType = {
-  idUser?: true
-  idProj?: true
-}
 
 export type MembroMinAggregateInputType = {
   idUser?: true
@@ -129,18 +107,6 @@ export type MembroAggregateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: MembroAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: MembroSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: MembroMinAggregateInputType
@@ -171,20 +137,16 @@ export type MembroGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   _count?: MembroCountAggregateInputType | true
-  _avg?: MembroAvgAggregateInputType
-  _sum?: MembroSumAggregateInputType
   _min?: MembroMinAggregateInputType
   _max?: MembroMaxAggregateInputType
 }
 
 export type MembroGroupByOutputType = {
-  idUser: number
-  idProj: number
+  idUser: string
+  idProj: string
   cargo: string
   admissao: Date
   _count: MembroCountAggregateOutputType | null
-  _avg: MembroAvgAggregateOutputType | null
-  _sum: MembroSumAggregateOutputType | null
   _min: MembroMinAggregateOutputType | null
   _max: MembroMaxAggregateOutputType | null
 }
@@ -208,8 +170,8 @@ export type MembroWhereInput = {
   AND?: Prisma.MembroWhereInput | Prisma.MembroWhereInput[]
   OR?: Prisma.MembroWhereInput[]
   NOT?: Prisma.MembroWhereInput | Prisma.MembroWhereInput[]
-  idUser?: Prisma.IntFilter<"Membro"> | number
-  idProj?: Prisma.IntFilter<"Membro"> | number
+  idUser?: Prisma.StringFilter<"Membro"> | string
+  idProj?: Prisma.StringFilter<"Membro"> | string
   cargo?: Prisma.StringFilter<"Membro"> | string
   admissao?: Prisma.DateTimeFilter<"Membro"> | Date | string
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
@@ -230,8 +192,8 @@ export type MembroWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.MembroWhereInput | Prisma.MembroWhereInput[]
   OR?: Prisma.MembroWhereInput[]
   NOT?: Prisma.MembroWhereInput | Prisma.MembroWhereInput[]
-  idUser?: Prisma.IntFilter<"Membro"> | number
-  idProj?: Prisma.IntFilter<"Membro"> | number
+  idUser?: Prisma.StringFilter<"Membro"> | string
+  idProj?: Prisma.StringFilter<"Membro"> | string
   cargo?: Prisma.StringFilter<"Membro"> | string
   admissao?: Prisma.DateTimeFilter<"Membro"> | Date | string
   usuario?: Prisma.XOR<Prisma.UsuarioScalarRelationFilter, Prisma.UsuarioWhereInput>
@@ -244,18 +206,16 @@ export type MembroOrderByWithAggregationInput = {
   cargo?: Prisma.SortOrder
   admissao?: Prisma.SortOrder
   _count?: Prisma.MembroCountOrderByAggregateInput
-  _avg?: Prisma.MembroAvgOrderByAggregateInput
   _max?: Prisma.MembroMaxOrderByAggregateInput
   _min?: Prisma.MembroMinOrderByAggregateInput
-  _sum?: Prisma.MembroSumOrderByAggregateInput
 }
 
 export type MembroScalarWhereWithAggregatesInput = {
   AND?: Prisma.MembroScalarWhereWithAggregatesInput | Prisma.MembroScalarWhereWithAggregatesInput[]
   OR?: Prisma.MembroScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MembroScalarWhereWithAggregatesInput | Prisma.MembroScalarWhereWithAggregatesInput[]
-  idUser?: Prisma.IntWithAggregatesFilter<"Membro"> | number
-  idProj?: Prisma.IntWithAggregatesFilter<"Membro"> | number
+  idUser?: Prisma.StringWithAggregatesFilter<"Membro"> | string
+  idProj?: Prisma.StringWithAggregatesFilter<"Membro"> | string
   cargo?: Prisma.StringWithAggregatesFilter<"Membro"> | string
   admissao?: Prisma.DateTimeWithAggregatesFilter<"Membro"> | Date | string
 }
@@ -268,8 +228,8 @@ export type MembroCreateInput = {
 }
 
 export type MembroUncheckedCreateInput = {
-  idUser: number
-  idProj: number
+  idUser: string
+  idProj: string
   cargo: string
   admissao: Date | string
 }
@@ -282,15 +242,15 @@ export type MembroUpdateInput = {
 }
 
 export type MembroUncheckedUpdateInput = {
-  idUser?: Prisma.IntFieldUpdateOperationsInput | number
-  idProj?: Prisma.IntFieldUpdateOperationsInput | number
+  idUser?: Prisma.StringFieldUpdateOperationsInput | string
+  idProj?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MembroCreateManyInput = {
-  idUser: number
-  idProj: number
+  idUser: string
+  idProj: string
   cargo: string
   admissao: Date | string
 }
@@ -301,8 +261,8 @@ export type MembroUpdateManyMutationInput = {
 }
 
 export type MembroUncheckedUpdateManyInput = {
-  idUser?: Prisma.IntFieldUpdateOperationsInput | number
-  idProj?: Prisma.IntFieldUpdateOperationsInput | number
+  idUser?: Prisma.StringFieldUpdateOperationsInput | string
+  idProj?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -318,8 +278,8 @@ export type MembroOrderByRelationAggregateInput = {
 }
 
 export type MembroIdUserIdProjCompoundUniqueInput = {
-  idUser: number
-  idProj: number
+  idUser: string
+  idProj: string
 }
 
 export type MembroCountOrderByAggregateInput = {
@@ -327,11 +287,6 @@ export type MembroCountOrderByAggregateInput = {
   idProj?: Prisma.SortOrder
   cargo?: Prisma.SortOrder
   admissao?: Prisma.SortOrder
-}
-
-export type MembroAvgOrderByAggregateInput = {
-  idUser?: Prisma.SortOrder
-  idProj?: Prisma.SortOrder
 }
 
 export type MembroMaxOrderByAggregateInput = {
@@ -346,11 +301,6 @@ export type MembroMinOrderByAggregateInput = {
   idProj?: Prisma.SortOrder
   cargo?: Prisma.SortOrder
   admissao?: Prisma.SortOrder
-}
-
-export type MembroSumOrderByAggregateInput = {
-  idUser?: Prisma.SortOrder
-  idProj?: Prisma.SortOrder
 }
 
 export type MembroCreateNestedManyWithoutProjetoInput = {
@@ -444,7 +394,7 @@ export type MembroCreateWithoutProjetoInput = {
 }
 
 export type MembroUncheckedCreateWithoutProjetoInput = {
-  idUser: number
+  idUser: string
   cargo: string
   admissao: Date | string
 }
@@ -479,8 +429,8 @@ export type MembroScalarWhereInput = {
   AND?: Prisma.MembroScalarWhereInput | Prisma.MembroScalarWhereInput[]
   OR?: Prisma.MembroScalarWhereInput[]
   NOT?: Prisma.MembroScalarWhereInput | Prisma.MembroScalarWhereInput[]
-  idUser?: Prisma.IntFilter<"Membro"> | number
-  idProj?: Prisma.IntFilter<"Membro"> | number
+  idUser?: Prisma.StringFilter<"Membro"> | string
+  idProj?: Prisma.StringFilter<"Membro"> | string
   cargo?: Prisma.StringFilter<"Membro"> | string
   admissao?: Prisma.DateTimeFilter<"Membro"> | Date | string
 }
@@ -492,7 +442,7 @@ export type MembroCreateWithoutUsuarioInput = {
 }
 
 export type MembroUncheckedCreateWithoutUsuarioInput = {
-  idProj: number
+  idProj: string
   cargo: string
   admissao: Date | string
 }
@@ -524,7 +474,7 @@ export type MembroUpdateManyWithWhereWithoutUsuarioInput = {
 }
 
 export type MembroCreateManyProjetoInput = {
-  idUser: number
+  idUser: string
   cargo: string
   admissao: Date | string
 }
@@ -536,19 +486,19 @@ export type MembroUpdateWithoutProjetoInput = {
 }
 
 export type MembroUncheckedUpdateWithoutProjetoInput = {
-  idUser?: Prisma.IntFieldUpdateOperationsInput | number
+  idUser?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MembroUncheckedUpdateManyWithoutProjetoInput = {
-  idUser?: Prisma.IntFieldUpdateOperationsInput | number
+  idUser?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MembroCreateManyUsuarioInput = {
-  idProj: number
+  idProj: string
   cargo: string
   admissao: Date | string
 }
@@ -560,13 +510,13 @@ export type MembroUpdateWithoutUsuarioInput = {
 }
 
 export type MembroUncheckedUpdateWithoutUsuarioInput = {
-  idProj?: Prisma.IntFieldUpdateOperationsInput | number
+  idProj?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type MembroUncheckedUpdateManyWithoutUsuarioInput = {
-  idProj?: Prisma.IntFieldUpdateOperationsInput | number
+  idProj?: Prisma.StringFieldUpdateOperationsInput | string
   cargo?: Prisma.StringFieldUpdateOperationsInput | string
   admissao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -628,8 +578,8 @@ export type $MembroPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     projeto: Prisma.$ProjetoPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    idUser: number
-    idProj: number
+    idUser: string
+    idProj: string
     cargo: string
     admissao: Date
   }, ExtArgs["result"]["membro"]>
@@ -1057,8 +1007,8 @@ export interface Prisma__MembroClient<T, Null = never, ExtArgs extends runtime.T
  * Fields of the Membro model
  */
 export interface MembroFieldRefs {
-  readonly idUser: Prisma.FieldRef<"Membro", 'Int'>
-  readonly idProj: Prisma.FieldRef<"Membro", 'Int'>
+  readonly idUser: Prisma.FieldRef<"Membro", 'String'>
+  readonly idProj: Prisma.FieldRef<"Membro", 'String'>
   readonly cargo: Prisma.FieldRef<"Membro", 'String'>
   readonly admissao: Prisma.FieldRef<"Membro", 'DateTime'>
 }

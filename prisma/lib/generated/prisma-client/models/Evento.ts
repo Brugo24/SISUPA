@@ -20,40 +20,28 @@ export type EventoModel = runtime.Types.Result.DefaultSelection<Prisma.$EventoPa
 
 export type AggregateEvento = {
   _count: EventoCountAggregateOutputType | null
-  _avg: EventoAvgAggregateOutputType | null
-  _sum: EventoSumAggregateOutputType | null
   _min: EventoMinAggregateOutputType | null
   _max: EventoMaxAggregateOutputType | null
 }
 
-export type EventoAvgAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
-export type EventoSumAggregateOutputType = {
-  id: number | null
-  projetoId: number | null
-}
-
 export type EventoMinAggregateOutputType = {
-  id: number | null
+  id: string | null
   nome: string | null
   descricao: string | null
   local: string | null
   data: Date | null
   horario: Date | null
-  projetoId: number | null
+  projetoId: string | null
 }
 
 export type EventoMaxAggregateOutputType = {
-  id: number | null
+  id: string | null
   nome: string | null
   descricao: string | null
   local: string | null
   data: Date | null
   horario: Date | null
-  projetoId: number | null
+  projetoId: string | null
 }
 
 export type EventoCountAggregateOutputType = {
@@ -67,16 +55,6 @@ export type EventoCountAggregateOutputType = {
   _all: number
 }
 
-
-export type EventoAvgAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
-
-export type EventoSumAggregateInputType = {
-  id?: true
-  projetoId?: true
-}
 
 export type EventoMinAggregateInputType = {
   id?: true
@@ -147,18 +125,6 @@ export type EventoAggregateArgs<ExtArgs extends runtime.Types.Extensions.Interna
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: EventoAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: EventoSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: EventoMinAggregateInputType
@@ -189,23 +155,19 @@ export type EventoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalA
   take?: number
   skip?: number
   _count?: EventoCountAggregateInputType | true
-  _avg?: EventoAvgAggregateInputType
-  _sum?: EventoSumAggregateInputType
   _min?: EventoMinAggregateInputType
   _max?: EventoMaxAggregateInputType
 }
 
 export type EventoGroupByOutputType = {
-  id: number
+  id: string
   nome: string
   descricao: string
   local: string
   data: Date
   horario: Date
-  projetoId: number
+  projetoId: string
   _count: EventoCountAggregateOutputType | null
-  _avg: EventoAvgAggregateOutputType | null
-  _sum: EventoSumAggregateOutputType | null
   _min: EventoMinAggregateOutputType | null
   _max: EventoMaxAggregateOutputType | null
 }
@@ -229,13 +191,13 @@ export type EventoWhereInput = {
   AND?: Prisma.EventoWhereInput | Prisma.EventoWhereInput[]
   OR?: Prisma.EventoWhereInput[]
   NOT?: Prisma.EventoWhereInput | Prisma.EventoWhereInput[]
-  id?: Prisma.IntFilter<"Evento"> | number
+  id?: Prisma.StringFilter<"Evento"> | string
   nome?: Prisma.StringFilter<"Evento"> | string
   descricao?: Prisma.StringFilter<"Evento"> | string
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
-  projetoId?: Prisma.IntFilter<"Evento"> | number
+  projetoId?: Prisma.StringFilter<"Evento"> | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }
 
@@ -251,7 +213,7 @@ export type EventoOrderByWithRelationInput = {
 }
 
 export type EventoWhereUniqueInput = Prisma.AtLeast<{
-  id?: number
+  id?: string
   AND?: Prisma.EventoWhereInput | Prisma.EventoWhereInput[]
   OR?: Prisma.EventoWhereInput[]
   NOT?: Prisma.EventoWhereInput | Prisma.EventoWhereInput[]
@@ -260,7 +222,7 @@ export type EventoWhereUniqueInput = Prisma.AtLeast<{
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
-  projetoId?: Prisma.IntFilter<"Evento"> | number
+  projetoId?: Prisma.StringFilter<"Evento"> | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }, "id">
 
@@ -273,26 +235,25 @@ export type EventoOrderByWithAggregationInput = {
   horario?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
   _count?: Prisma.EventoCountOrderByAggregateInput
-  _avg?: Prisma.EventoAvgOrderByAggregateInput
   _max?: Prisma.EventoMaxOrderByAggregateInput
   _min?: Prisma.EventoMinOrderByAggregateInput
-  _sum?: Prisma.EventoSumOrderByAggregateInput
 }
 
 export type EventoScalarWhereWithAggregatesInput = {
   AND?: Prisma.EventoScalarWhereWithAggregatesInput | Prisma.EventoScalarWhereWithAggregatesInput[]
   OR?: Prisma.EventoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.EventoScalarWhereWithAggregatesInput | Prisma.EventoScalarWhereWithAggregatesInput[]
-  id?: Prisma.IntWithAggregatesFilter<"Evento"> | number
+  id?: Prisma.StringWithAggregatesFilter<"Evento"> | string
   nome?: Prisma.StringWithAggregatesFilter<"Evento"> | string
   descricao?: Prisma.StringWithAggregatesFilter<"Evento"> | string
   local?: Prisma.StringWithAggregatesFilter<"Evento"> | string
   data?: Prisma.DateTimeWithAggregatesFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeWithAggregatesFilter<"Evento"> | Date | string
-  projetoId?: Prisma.IntWithAggregatesFilter<"Evento"> | number
+  projetoId?: Prisma.StringWithAggregatesFilter<"Evento"> | string
 }
 
 export type EventoCreateInput = {
+  id?: string
   nome: string
   descricao: string
   local: string
@@ -302,16 +263,17 @@ export type EventoCreateInput = {
 }
 
 export type EventoUncheckedCreateInput = {
-  id?: number
+  id?: string
   nome: string
   descricao: string
   local: string
   data: Date | string
   horario: Date | string
-  projetoId: number
+  projetoId: string
 }
 
 export type EventoUpdateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
@@ -321,26 +283,27 @@ export type EventoUpdateInput = {
 }
 
 export type EventoUncheckedUpdateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type EventoCreateManyInput = {
-  id?: number
+  id?: string
   nome: string
   descricao: string
   local: string
   data: Date | string
   horario: Date | string
-  projetoId: number
+  projetoId: string
 }
 
 export type EventoUpdateManyMutationInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
@@ -349,13 +312,13 @@ export type EventoUpdateManyMutationInput = {
 }
 
 export type EventoUncheckedUpdateManyInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  projetoId?: Prisma.IntFieldUpdateOperationsInput | number
+  projetoId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type EventoListRelationFilter = {
@@ -378,11 +341,6 @@ export type EventoCountOrderByAggregateInput = {
   projetoId?: Prisma.SortOrder
 }
 
-export type EventoAvgOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
-}
-
 export type EventoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   nome?: Prisma.SortOrder
@@ -400,11 +358,6 @@ export type EventoMinOrderByAggregateInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
-  projetoId?: Prisma.SortOrder
-}
-
-export type EventoSumOrderByAggregateInput = {
-  id?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
 }
 
@@ -451,6 +404,7 @@ export type EventoUncheckedUpdateManyWithoutProjetoNestedInput = {
 }
 
 export type EventoCreateWithoutProjetoInput = {
+  id?: string
   nome: string
   descricao: string
   local: string
@@ -459,7 +413,7 @@ export type EventoCreateWithoutProjetoInput = {
 }
 
 export type EventoUncheckedCreateWithoutProjetoInput = {
-  id?: number
+  id?: string
   nome: string
   descricao: string
   local: string
@@ -497,17 +451,17 @@ export type EventoScalarWhereInput = {
   AND?: Prisma.EventoScalarWhereInput | Prisma.EventoScalarWhereInput[]
   OR?: Prisma.EventoScalarWhereInput[]
   NOT?: Prisma.EventoScalarWhereInput | Prisma.EventoScalarWhereInput[]
-  id?: Prisma.IntFilter<"Evento"> | number
+  id?: Prisma.StringFilter<"Evento"> | string
   nome?: Prisma.StringFilter<"Evento"> | string
   descricao?: Prisma.StringFilter<"Evento"> | string
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
-  projetoId?: Prisma.IntFilter<"Evento"> | number
+  projetoId?: Prisma.StringFilter<"Evento"> | string
 }
 
 export type EventoCreateManyProjetoInput = {
-  id?: number
+  id?: string
   nome: string
   descricao: string
   local: string
@@ -516,6 +470,7 @@ export type EventoCreateManyProjetoInput = {
 }
 
 export type EventoUpdateWithoutProjetoInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
@@ -524,7 +479,7 @@ export type EventoUpdateWithoutProjetoInput = {
 }
 
 export type EventoUncheckedUpdateWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
@@ -533,7 +488,7 @@ export type EventoUncheckedUpdateWithoutProjetoInput = {
 }
 
 export type EventoUncheckedUpdateManyWithoutProjetoInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
+  id?: Prisma.StringFieldUpdateOperationsInput | string
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   local?: Prisma.StringFieldUpdateOperationsInput | string
@@ -603,13 +558,13 @@ export type $EventoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     projeto: Prisma.$ProjetoPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
-    id: number
+    id: string
     nome: string
     descricao: string
     local: string
     data: Date
     horario: Date
-    projetoId: number
+    projetoId: string
   }, ExtArgs["result"]["evento"]>
   composites: {}
 }
@@ -1034,13 +989,13 @@ export interface Prisma__EventoClient<T, Null = never, ExtArgs extends runtime.T
  * Fields of the Evento model
  */
 export interface EventoFieldRefs {
-  readonly id: Prisma.FieldRef<"Evento", 'Int'>
+  readonly id: Prisma.FieldRef<"Evento", 'String'>
   readonly nome: Prisma.FieldRef<"Evento", 'String'>
   readonly descricao: Prisma.FieldRef<"Evento", 'String'>
   readonly local: Prisma.FieldRef<"Evento", 'String'>
   readonly data: Prisma.FieldRef<"Evento", 'DateTime'>
   readonly horario: Prisma.FieldRef<"Evento", 'DateTime'>
-  readonly projetoId: Prisma.FieldRef<"Evento", 'Int'>
+  readonly projetoId: Prisma.FieldRef<"Evento", 'String'>
 }
     
 
