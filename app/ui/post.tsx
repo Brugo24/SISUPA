@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function PostComponent({post} : {post : PostComProjeto}){
 
-    const postImgs = post?.imagens ? post.imagens.split(',') : [];
+    const postImgs = post?.imagens ? JSON.parse(post.imagens) as string[] : [];
     return(
         <div className="p-3 bg-blue-500 m-2">
             <Image 
