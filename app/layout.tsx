@@ -13,7 +13,7 @@ export default function RootLayout({children}:{children: React.ReactNode}) {
               <aside className="w-full flex-none md:w-64"> 
                   <SideNav />
               </aside>
-              <main className="grow p-6 md:overflow-y-auto md:p-8 bg-fuchsia-500">
+              <main className="grow p-6 md:overflow-y-auto md:p-8">
                 {children}
               </main>
             </div>

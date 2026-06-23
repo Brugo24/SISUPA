@@ -153,15 +153,28 @@ const postsDeTeste = [
 
 async function main() {
   console.log('🧹 Limpando todos os posts antigos do banco de dados...');
-  await prisma.post.deleteMany();
   console.log('✅ Banco limpo!');
 
   console.log('⏳ Iniciando a inserção dos 17 novos posts de teste...');
-  const result = await prisma.post.createMany({
-    data: postsDeTeste,
-  });
+  const atuma = await prisma.post.update({
+    where: {id: "cmqie1kks0001bkxwnx2icg5t"},
+    data: {imagens: JSON.stringify([
+      "https://images.unsplash.com/photo-1774173511909-3a9f9ab208cb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&auto=format&fit=crop"
+    ])}
+  })
 
-  console.log(`✅ Sucesso total! ${result.count} posts foram inseridos.`);
+  const atuma2 = await prisma.post.update({
+    where: {id: "cmqie1kks0003bkxwux3nlygw"},
+    data: {imagens: JSON.stringify([
+      "https://images.unsplash.com/photo-1777646378295-c121ecfea209?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1777978686067-4d08aa26be36?q=80&w=1069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop"
+    ])}
+  })
+  console.log(`✅ Sucesso total! posts foram inseridos.`);
+
 }
 
 main()
