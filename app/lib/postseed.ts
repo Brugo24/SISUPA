@@ -156,23 +156,43 @@ async function main() {
   console.log('✅ Banco limpo!');
 
   console.log('⏳ Iniciando a inserção dos 17 novos posts de teste...');
-  const atuma = await prisma.post.update({
-    where: {id: "cmqie1kks0001bkxwnx2icg5t"},
-    data: {imagens: JSON.stringify([
-      "https://images.unsplash.com/photo-1774173511909-3a9f9ab208cb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&auto=format&fit=crop"
-    ])}
+  
+  const atuma = await prisma.post.create({
+    data: {
+  titulo: "Workshop de Robótica e Automação Industrial",
+  corpo: "Confira os registros do nosso último workshop prático! Os alunos puderam programar braços robóticos e simular linhas de produção automatizadas em tempo real. Parabéns a todos os envolvidos!",
+  status: "PUBLICADO",
+  // 5 Imagens transformadas em uma única string para o banco de dados
+  imagens: JSON.stringify([
+    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop", // Robô
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop", // Engenharia
+    "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&auto=format&fit=crop", // Tecnologia
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop", // Placa de circuito
+    "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop"  // Estudantes
+  ]),
+  projetoId: "cmqflqh3e0000n4xwryoasztl" // Chave estrangeira para a tabela de projeto
+}
+  }
+  )
+
+  const atuma2 = await prisma.post.create({
+    data:{
+  titulo: "Hackathon SISUPA 2026 - Maratona de Programação",
+  corpo: "Foram 48 horas intensas de muita cafeína, linhas de código e ideação. Nossos acadêmicos deram um show de criatividade no desenvolvimento de soluções para a comunidade local. Vejas as fotos dos times!",
+  status: "PUBLICADO",
+  // 6 Imagens transformadas em uma única string para o banco de dados
+  imagens: JSON.stringify([
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop", // Galera codando
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop", // Reunião de equipe
+    "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&auto=format&fit=crop", // Notebook com código
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop", // Discussão no quadro
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop", // Apresentação final
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop"  // Foto do pódio
+  ]),
+  projetoId: "cmqflqh6x0001n4xwigrq3h8b"
+}
   })
 
-  const atuma2 = await prisma.post.update({
-    where: {id: "cmqie1kks0003bkxwux3nlygw"},
-    data: {imagens: JSON.stringify([
-      "https://images.unsplash.com/photo-1777646378295-c121ecfea209?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1777978686067-4d08aa26be36?q=80&w=1069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop"
-    ])}
-  })
   console.log(`✅ Sucesso total! posts foram inseridos.`);
 
 }

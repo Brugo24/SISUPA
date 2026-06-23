@@ -74,45 +74,29 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
             </div>
         )
     }
-    if(qtd == 4){
+    if(qtd >= 4){
         return(
             <div className="grid grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden rounded-2xl border border-gray-200 h-80">
-                <div className="relative h-full w-full">
-                    <Image
-                    className="object-cover"
-                    src={postImgs[0]}
-                    alt="Imagem 1 do Post"
-                    unoptimized
-                    fill
-                    />
-                </div>
-                <div className="relative h-full w-full">
-                    <Image
-                    className="object-cover"
-                    src={postImgs[1]}
-                    alt="Imagem 2 do Post"
-                    unoptimized
-                    fill
-                    />
-                </div>
-                <div className="relative h-full w-full">
-                    <Image
-                    className="object-cover"
-                    src={postImgs[2]}
-                    alt="Imagem 3 do Post"
-                    unoptimized
-                    fill
-                    />
-                </div>
-                <div className="relative h-full w-full">
-                    <Image
-                    className="object-cover"
-                    src={postImgs[3]}
-                    alt="Imagem 4 do Post"
-                    unoptimized
-                    fill
-                    />
-                </div>
+                {postImgs.slice(0, 4).map((img, index) => 
+                    (
+                        <div className="relative h-full w-full">
+                            <Image
+                            className="object-cover"
+                            key={index}
+                            src={img}
+                            alt={`Imagem ${index} do Post`}
+                            fill
+                            unoptimized
+                            />
+                            {index == 3 && qtd > 4 && (
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-2xl font-bold text-white">
+                                    +{qtd - 4}
+                                </div>
+                            )}
+                        </div>
+
+                    )
+                )}
             </div>
         )
     }
