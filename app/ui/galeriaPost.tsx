@@ -1,11 +1,18 @@
 import Image from "next/image";
+import ModalImagens from "./modalImagens";
+import { useState } from "react";
 
 export default function GaleriaPost({postImgs} : {postImgs : string[]}){
     const qtd = postImgs.length;
+    const [modalImages, setModalImages] = useState<number|null>();
+
+    function abrirModal(){
+        
+    }
 
     if(qtd == 1){
         return (
-            <div>
+            <button className="hover:cursor-pointer">
                 <Image 
                 className="w-full h-80 rounded-2xl object-cover"
                 src={postImgs[0]}
@@ -14,13 +21,13 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                 height={100}
                 unoptimized
                 />
-            </div>
+            </button>
         )
     }
     if(qtd == 2){
         return(
             <div className="grid grid-cols-2 overflow-hidden rounded-2xl gap-0.5 border border-gray-200 h-80">
-                <div className="relative w-full h-full">
+                <button className="relative w-full h-full hover:cursor-pointer">
                     <Image 
                     className="object-cover"
                     src={postImgs[0]}
@@ -28,8 +35,8 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                     fill
                     unoptimized
                     />
-                </div>
-                <div className="relative w-full h-full">
+                </button>
+                <button className="relative w-full h-full hover:cursor-pointer">
                     <Image 
                     className="object-cover"
                     src={postImgs[1]}
@@ -37,14 +44,14 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                     fill
                     unoptimized
                     />
-                </div>
+                </button>
             </div>
         )
     }
     if(qtd == 3){
         return (
             <div className="grid grid-cols-2 grid-rows-2 overflow-hidden rounded-2xl gap-0.5 border border-gray-200 h-80">
-                <div className="row-span-2 h-full w-full relative">
+                <button className="row-span-2 h-full w-full relative hover:cursor-pointer">
                     <Image
                     className="object-cover"
                     src={postImgs[0]}
@@ -52,8 +59,8 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                     unoptimized
                     fill
                     />
-                </div>
-                <div className="w-full h-full relative">
+                </button>
+                <button className="w-full h-full relative hover:cursor-pointer">
                     <Image
                     className="object-cover"
                     src={postImgs[1]}
@@ -61,8 +68,8 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                     unoptimized
                     fill
                     />
-                </div>
-                <div className="w-full h-full relative">
+                </button>
+                <button className="w-full h-full relative hover:cursor-pointer">
                     <Image
                     className="object-cover"
                     src={postImgs[2]}
@@ -70,7 +77,7 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                     unoptimized
                     fill
                     />
-                </div>
+                </button>
             </div>
         )
     }
@@ -79,7 +86,7 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
             <div className="grid grid-cols-2 grid-rows-2 gap-0.5 overflow-hidden rounded-2xl border border-gray-200 h-80">
                 {postImgs.slice(0, 4).map((img, index) => 
                     (
-                        <div className="relative h-full w-full">
+                        <button className="relative h-full w-full hover:cursor-pointer" key={index}>
                             <Image
                             className="object-cover"
                             key={index}
@@ -89,11 +96,11 @@ export default function GaleriaPost({postImgs} : {postImgs : string[]}){
                             unoptimized
                             />
                             {index == 3 && qtd > 4 && (
-                                <div className="absolute inset-0 flex items-center justify-center bg-black/50 text-2xl font-bold text-white">
+                                <button className="absolute inset-0 flex items-center justify-center bg-black/50 text-2xl font-bold text-white hover:cursor-pointer">
                                     +{qtd - 4}
-                                </div>
+                                </button>
                             )}
-                        </div>
+                        </button>
 
                     )
                 )}
