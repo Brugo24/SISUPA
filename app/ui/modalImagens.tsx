@@ -10,11 +10,9 @@ export default function ModalDeImagens({ modalImage, setModalImage, postImgs }: 
     postImgs: string[]; 
 }){
     useEffect(() => {
-        // Busca a miniatura que está com o ID especial
         const miniaturaAtiva = document.getElementById("miniatura-ativa");
         
         if (miniaturaAtiva) {
-            // Essa função nativa faz o scroll deslizar suavemente até o elemento ficar no centro da div
             miniaturaAtiva.scrollIntoView({ 
                 behavior: "smooth", 
                 block: "center" 
