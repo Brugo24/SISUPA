@@ -157,41 +157,33 @@ async function main() {
 
   console.log('⏳ Iniciando a inserção dos 17 novos posts de teste...');
   
-  const atuma = await prisma.post.create({
-    data: {
-  titulo: "Workshop de Robótica e Automação Industrial",
-  corpo: "Confira os registros do nosso último workshop prático! Os alunos puderam programar braços robóticos e simular linhas de produção automatizadas em tempo real. Parabéns a todos os envolvidos!",
-  status: "PUBLICADO",
-  // 5 Imagens transformadas em uma única string para o banco de dados
-  imagens: JSON.stringify([
-    "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&auto=format&fit=crop", // Robô
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&auto=format&fit=crop", // Engenharia
-    "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&auto=format&fit=crop", // Tecnologia
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop", // Placa de circuito
-    "https://images.unsplash.com/photo-1563770660941-20978e870e26?w=600&auto=format&fit=crop"  // Estudantes
-  ]),
-  projetoId: "cmqflqh3e0000n4xwryoasztl" // Chave estrangeira para a tabela de projeto
-}
+  const novoPost = await prisma.post.create({
+  data: {
+    titulo: "🚀 Cobertura do Nosso Grande Evento!",
+    corpo: "O evento foi maravilhoso! Aconteceu isso e aquilo...",
+    status: "publicado",
+    projetoId: "cmqflqh3e0000n4xwryoasztl", 
+    
+    // Agora vai o array puro direto para o banco! 🚀
+    imagens: JSON.stringify([
+      "https://picsum.photos/seed/sisupa1/1000/800",
+      "https://picsum.photos/seed/sisupa2/800/1000",
+      "https://picsum.photos/seed/sisupa3/1200/800",
+      "https://picsum.photos/seed/sisupa4/900/900",
+      "https://picsum.photos/seed/sisupa5/1000/800",
+      "https://picsum.photos/seed/sisupa6/800/600",
+      "https://picsum.photos/seed/sisupa7/1000/800",
+      "https://picsum.photos/seed/sisupa8/1600/900",
+      "https://picsum.photos/seed/sisupa9/1000/800",
+      "https://picsum.photos/seed/sisupa10/800/1000",
+      "https://picsum.photos/seed/sisupa11/1000/800",
+      "https://picsum.photos/seed/sisupa12/800/800",
+      "https://picsum.photos/seed/sisupa13/1000/800",
+      "https://picsum.photos/seed/sisupa14/1200/600",
+      "https://picsum.photos/seed/sisupa15/1000/800"
+    ])
   }
-  )
-
-  const atuma2 = await prisma.post.create({
-    data:{
-  titulo: "Hackathon SISUPA 2026 - Maratona de Programação",
-  corpo: "Foram 48 horas intensas de muita cafeína, linhas de código e ideação. Nossos acadêmicos deram um show de criatividade no desenvolvimento de soluções para a comunidade local. Vejas as fotos dos times!",
-  status: "PUBLICADO",
-  // 6 Imagens transformadas em uma única string para o banco de dados
-  imagens: JSON.stringify([
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&auto=format&fit=crop", // Galera codando
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&auto=format&fit=crop", // Reunião de equipe
-    "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&auto=format&fit=crop", // Notebook com código
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop", // Discussão no quadro
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop", // Apresentação final
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop"  // Foto do pódio
-  ]),
-  projetoId: "cmqflqh6x0001n4xwigrq3h8b"
-}
-  })
+})
 
   console.log(`✅ Sucesso total! posts foram inseridos.`);
 
