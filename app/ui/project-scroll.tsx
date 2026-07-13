@@ -12,6 +12,9 @@ export default function ProjectScroll({query} : {query : string}) {
 
     useEffect(() => {
         async function carregarProjetosIniciais() {
+            setProjetos([]);
+            setIdUltimoProjeto(undefined);
+
             const projetosIniciais = await fetchProjetosIniciais(query);
             setProjetos(projetosIniciais);
 
@@ -35,9 +38,9 @@ export default function ProjectScroll({query} : {query : string}) {
 
     return(
         <div className="mt-10 flex flex-1 flex-row flex-wrap">
-            {projetos && projetos.map((projeto) => {
+            {projetos && projetos.map((projeto,index) => {
                 return (<div className="m-3">
-                    <ProjectCard projeto={projeto}/>
+                    <ProjectCard projeto={projeto} key={index}/>
                 </div>)
             })}
             <ObserverTarget onIntersect={carregarProjetos}/>
