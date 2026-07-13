@@ -1,5 +1,6 @@
 'use server';
-import { PostComProjeto } from "./definitions";
+import { Projeto } from "@/prisma/lib/generated/prisma-client/client";
+import { PostComProjeto} from "./definitions";
 import { prisma } from "./prisma";
 
 export async function fetchPosts(idAtual : string) {
@@ -40,6 +41,44 @@ export async function fetchPostsIniciais() {
             postadoEm: "desc"
         }
     });
+
+    return data;
+}
+
+export async function fetchProjetosIniciais(query:string) {
+    const data : Projeto[] = await prisma.projeto.findMany({
+        where:{
+            nome:{
+                contains: query,
+                mode: "insensitive"
+            }
+        },
+        take: 9,
+        orderBy:{
+            nome: "asc"
+        }
+    })
+
+    return data;
+}
+
+export async function fetchProjetos(query : string, idAtual: string) {
+    const data : Projeto[] = await prisma.projeto.findMany({
+        where:{
+            nome:{
+                contains: query,
+                mode: "insensitive"
+            }
+        },
+        take: 9,
+        skip: 1,
+        cursor:{
+            id: idAtual
+        },
+        orderBy:{
+            nome:"asc"
+        }
+    })
 
     return data;
 }

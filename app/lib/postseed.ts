@@ -157,33 +157,173 @@ async function main() {
 
   console.log('⏳ Iniciando a inserção dos 17 novos posts de teste...');
   
-  const novoPost = await prisma.post.create({
-  data: {
-    titulo: "🚀 Cobertura do Nosso Grande Evento!",
-    corpo: "O evento foi maravilhoso! Aconteceu isso e aquilo...",
-    status: "publicado",
-    projetoId: "cmqflqh3e0000n4xwryoasztl", 
-    
-    // Agora vai o array puro direto para o banco! 🚀
-    imagens: JSON.stringify([
-      "https://picsum.photos/seed/sisupa1/1000/800",
-      "https://picsum.photos/seed/sisupa2/800/1000",
-      "https://picsum.photos/seed/sisupa3/1200/800",
-      "https://picsum.photos/seed/sisupa4/900/900",
-      "https://picsum.photos/seed/sisupa5/1000/800",
-      "https://picsum.photos/seed/sisupa6/800/600",
-      "https://picsum.photos/seed/sisupa7/1000/800",
-      "https://picsum.photos/seed/sisupa8/1600/900",
-      "https://picsum.photos/seed/sisupa9/1000/800",
-      "https://picsum.photos/seed/sisupa10/800/1000",
-      "https://picsum.photos/seed/sisupa11/1000/800",
-      "https://picsum.photos/seed/sisupa12/800/800",
-      "https://picsum.photos/seed/sisupa13/1000/800",
-      "https://picsum.photos/seed/sisupa14/1200/600",
-      "https://picsum.photos/seed/sisupa15/1000/800"
-    ])
+  const novosprojetos = await prisma.projeto.createMany({
+    data: [
+      
+  {
+    nome: "EcoMonitor",
+    descricao: "Plataforma IoT para monitoramento de qualidade do ar em ambientes acadêmicos.",
+    foto: "https://ui-avatars.com/api/?name=EcoMonitor&background=10b981&color=fff",
+    banner: "https://placehold.co/1200x400/10b981/ffffff?text=EcoMonitor+Banner",
+    contato: "contato@ecomonitor.ufpa.br"
+  },
+  {
+    nome: "TechMed",
+    descricao: "Sistema de triagem inteligente para unidades básicas de saúde.",
+    foto: null,
+    banner: null,
+    contato: "techmed_suporte@gmail.com"
+  },
+  {
+    nome: "AgroSmart",
+    descricao: "Aplicativo para gestão de pequenas lavouras utilizando IA para previsão de colheita.",
+    foto: "https://ui-avatars.com/api/?name=AgroSmart&background=f59e0b&color=fff",
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "EduLibras",
+    descricao: "Tradutor em tempo real de português para a Língua Brasileira de Sinais usando visão computacional.",
+    foto: null,
+    banner: "https://placehold.co/1200x400/3b82f6/ffffff?text=EduLibras",
+    contato: "edulibras@projeto.edu.br"
+  },
+  {
+    nome: "MobAcess",
+    descricao: "Mapeamento colaborativo de acessibilidade em vias públicas urbanas.",
+    foto: "https://ui-avatars.com/api/?name=MobAcess&background=ef4444&color=fff",
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "FinKids",
+    descricao: "Gamificação para ensino de educação financeira para crianças do ensino fundamental.",
+    foto: null,
+    banner: null,
+    contato: "hello@finkids.app"
+  },
+  {
+    nome: "SisGestão Escolar",
+    descricao: "ERP de código aberto focado em escolas públicas estaduais.",
+    foto: "https://ui-avatars.com/api/?name=SisGestão&background=6366f1&color=fff",
+    banner: "https://placehold.co/1200x400/6366f1/ffffff?text=Gestão+Escolar",
+    contato: "admin@sisgestao.com"
+  },
+  {
+    nome: "AutoDrive TCC",
+    descricao: "Protótipo de veículo autônomo em escala reduzida usando redes neurais.",
+    foto: null,
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "CriptoVote",
+    descricao: "Sistema de votação acadêmica descentralizada baseada em tecnologia Blockchain.",
+    foto: "https://ui-avatars.com/api/?name=CriptoVote&background=8b5cf6&color=fff",
+    banner: null,
+    contato: "votos@criptovote.br"
+  },
+  {
+    nome: "Recicla+",
+    descricao: "App que conecta catadores de materiais recicláveis a condomínios residenciais.",
+    foto: null,
+    banner: "https://placehold.co/1200x400/22c55e/ffffff?text=Recicla+",
+    contato: null
+  },
+  {
+    nome: "NutriIA",
+    descricao: "Geração de cardápios personalizados baseados em análise genética e IA.",
+    foto: "https://ui-avatars.com/api/?name=NutriIA&background=ec4899&color=fff",
+    banner: null,
+    contato: "contato@nutriia.com.br"
+  },
+  {
+    nome: "SmartCampus",
+    descricao: "Aplicativo de navegação interna e reserva de laboratórios para universidades.",
+    foto: null,
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "DevOps Builder",
+    descricao: "Ferramenta para automatização de pipelines CI/CD para estudantes de engenharia de software.",
+    foto: "https://ui-avatars.com/api/?name=DevOps+Builder&background=1e293b&color=fff",
+    banner: "https://placehold.co/1200x400/1e293b/ffffff?text=DevOps+Builder",
+    contato: "devops@builder.io"
+  },
+  {
+    nome: "PetFinder",
+    descricao: "Rede social para adoção e resgate de animais em situação de rua.",
+    foto: null,
+    banner: null,
+    contato: "sos@petfinder.org"
+  },
+  {
+    nome: "GeoTracker",
+    descricao: "Rastreamento e análise de frotas de transporte público em tempo real.",
+    foto: "https://ui-avatars.com/api/?name=GeoTracker&background=06b6d4&color=fff",
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "FalaDev",
+    descricao: "Fórum gamificado para tirar dúvidas de programação entre calouros e veteranos.",
+    foto: null,
+    banner: null,
+    contato: "faladev@universidade.br"
+  },
+  {
+    nome: "BioPrint",
+    descricao: "Pesquisa sobre impressão 3D de tecidos biológicos para testes de cosméticos.",
+    foto: "https://ui-avatars.com/api/?name=BioPrint&background=be123c&color=fff",
+    banner: "https://placehold.co/1200x400/be123c/ffffff?text=BioPrint+Project",
+    contato: "lab@bioprint.com"
+  },
+  {
+    nome: "OdontoDigital",
+    descricao: "Prontuário eletrônico unificado para clínicas odontológicas universitárias.",
+    foto: null,
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "DroneTech",
+    descricao: "Uso de drones para mapeamento topográfico de áreas de risco geológico.",
+    foto: "https://ui-avatars.com/api/?name=DroneTech&background=475569&color=fff",
+    banner: null,
+    contato: "drones@tech.br"
+  },
+  {
+    nome: "MentalCare",
+    descricao: "Chatbot de apoio psicológico primário para estudantes em período de provas.",
+    foto: null,
+    banner: "https://placehold.co/1200x400/60a5fa/ffffff?text=MentalCare",
+    contato: "apoio@mentalcare.org"
+  },
+  {
+    nome: "ArteViva",
+    descricao: "Galeria virtual em Realidade Aumentada (AR) para artistas independentes.",
+    foto: "https://ui-avatars.com/api/?name=ArteViva&background=f43f5e&color=fff",
+    banner: null,
+    contato: null
+  },
+  {
+    nome: "TourVirtual UF",
+    descricao: "Mapeamento em 360º de todo o campus universitário para novos alunos.",
+    foto: null,
+    banner: null,
+    contato: "tour@uf.edu.br"
+  },
+  {
+    nome: "SISUPA Core",
+    descricao: "Módulo principal de arquitetura e documentação do sistema SISUPA.",
+    foto: "https://ui-avatars.com/api/?name=SISUPA&background=0D8ABC&color=fff",
+    banner: "https://placehold.co/1200x400/0D8ABC/ffffff?text=SISUPA+Core+System",
+    contato: "admin@sisupa.com.br"
   }
-})
+
+    ]
+  })
 
   console.log(`✅ Sucesso total! posts foram inseridos.`);
 
