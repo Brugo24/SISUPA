@@ -3,7 +3,7 @@ import PostScroll from "../ui/post-scroll";
 
 export default function Home() {
   return (
-    <main className="flex flex-row ">
+    <main className="flex flex-row p-8">
       <div className=" flex flex-col p-3 w-2/3 h-fit">
           {/*Componente dos posts*/}
           <PostScroll />

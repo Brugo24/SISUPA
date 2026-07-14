@@ -39,8 +39,8 @@ export default function ProjectScroll({query} : {query : string}) {
     return(
         <div className="mt-10 flex flex-1 flex-row flex-wrap">
             {projetos && projetos.map((projeto,index) => {
-                return (<div className="m-3">
-                    <ProjectCard projeto={projeto} key={index}/>
+                return (<div className="m-3" key={index}>
+                    <ProjectCard projeto={projeto}/>
                 </div>)
             })}
             <ObserverTarget onIntersect={carregarProjetos}/>

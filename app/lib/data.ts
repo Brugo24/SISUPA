@@ -82,3 +82,61 @@ export async function fetchProjetos(query : string, idAtual: string) {
 
     return data;
 }
+
+export async function fetchProjetoPorId(id: string){
+    const data = await prisma.projeto.findUnique({
+        where:{
+            id: id
+        }
+    })
+
+    return data;
+}
+
+export async function fetchPostsIniciaisPorProjeto(id: string) {
+    const data : PostComProjeto[] = await prisma.post.findMany({
+        where:{
+            projetoId:id
+        },
+        include:{
+            projeto:{
+                select:{
+                    nome: true,
+                    foto: true
+                }
+            }
+        },
+        take: 3,
+        orderBy:{
+            postadoEm:"desc"
+        }
+    })
+
+    return data
+}
+
+export async function fetchPostsporProjeto(idProjeto: string, idAtual: string) {
+    const data : PostComProjeto[] = await prisma.post.findMany({
+        where:{
+            projetoId: idProjeto
+        },
+        include:{
+            projeto:{
+                select:{
+                    nome: true,
+                    foto: true
+                }
+            }
+        },
+        take: 5,
+        skip: 1,
+        cursor:{
+            id: idAtual
+        },
+        orderBy:{
+            postadoEm:"desc"
+        }
+    })
+
+    return data;
+}

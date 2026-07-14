@@ -11,7 +11,7 @@ export default async function Projetos(props: {
     const query = params?.query || '';
 
     return(
-        <div>
+        <div className="p-8">
             <SearchBar placeholder="Pesquise seu projeto..."/>
             <ProjectScroll query={query}/>
         </div>

@@ -1,9 +1,10 @@
 import { Projeto } from "@/prisma/lib/generated/prisma-client/client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectCard({projeto} : {projeto : Projeto}){
     return(
-        <div className="w-90 h-100 rounded-md grid grid-cols-1 grid-rows-2 overflow-hidden border-3 border-gray-400">
+        <Link className="w-90 h-100 rounded-md grid grid-cols-1 grid-rows-2 overflow-hidden border-3 border-gray-400" href={`/projetos/${projeto.id}`}>
             <div className="w-full h-full relative">
                 <Image
                 className="object-cover"
@@ -26,6 +27,6 @@ export default function ProjectCard({projeto} : {projeto : Projeto}){
                 </div>
                 <p className="text-center text-2xl font-bold">{projeto.nome}</p>
             </div>
-        </div>
+        </Link>
     )
 }
