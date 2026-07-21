@@ -1,5 +1,7 @@
 import Image from "next/image";
 import PostScroll from "../ui/post-scroll";
+import EventsWidget from "../ui/eventsWidget";
+import ProcessesWidget from "../ui/processesWidget";
 
 export default function Home() {
   return (
@@ -10,21 +12,9 @@ export default function Home() {
       </div>
       <div className=" flex flex-col p-3 ml-3 w-1/3 h-fit">
         {/*Componente vagas novas*/}
-        <div className="bg-blue-500 flex flex-col w-full h-full p-2 mb-6">
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-        </div> 
+        <EventsWidget/>
         {/*Componente vagas se encerrando*/}
-        <div className="bg-blue-500 flex flex-col w-full h-full p-2 mb-6">
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-          <div className="bg-yellow-500 h-12 mb-2"></div>
-        </div> 
+        <ProcessesWidget/>
       </div>
     </main>
   );
