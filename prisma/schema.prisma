@@ -34,6 +34,7 @@ model Projeto {
   foto               String?            // Opcional
   banner             String?            // Opcional
   contato            String?            // Opcional
+  descricaoCurta    String                @default("Descrição curta")
   
   // Relações reversas (Um projeto tem vários posts, membros, etc.)
   posts              Post[]

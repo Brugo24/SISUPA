@@ -11,3 +11,10 @@ export type PostComProjeto = Prisma.PostGetPayload<{
         }
     }
 }>
+
+export type ImagemMedia = Prisma.PostGetPayload<{
+    select:{
+        imagens: true,
+        id: true
+    }
+}>

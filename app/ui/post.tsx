@@ -6,7 +6,7 @@ export default function PostComponent({post} : {post : PostComProjeto}){
 
     const postImgs = post?.imagens ? JSON.parse(post.imagens) as string[] : [];
     return(
-        <div className="p-3 bg-white rounded-2xl m-2 border-black border-2">
+        <div className="p-3 bg-white rounded-2xl m-2 border-gray-500 border">
             <div className="flex flex-row">
                 <Image
                     className="rounded-full size-max border-2 border-black" 

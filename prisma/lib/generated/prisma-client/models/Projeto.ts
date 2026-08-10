@@ -31,6 +31,7 @@ export type ProjetoMinAggregateOutputType = {
   foto: string | null
   banner: string | null
   contato: string | null
+  descricaoCurta: string | null
 }
 
 export type ProjetoMaxAggregateOutputType = {
@@ -40,6 +41,7 @@ export type ProjetoMaxAggregateOutputType = {
   foto: string | null
   banner: string | null
   contato: string | null
+  descricaoCurta: string | null
 }
 
 export type ProjetoCountAggregateOutputType = {
@@ -49,6 +51,7 @@ export type ProjetoCountAggregateOutputType = {
   foto: number
   banner: number
   contato: number
+  descricaoCurta: number
   _all: number
 }
 
@@ -60,6 +63,7 @@ export type ProjetoMinAggregateInputType = {
   foto?: true
   banner?: true
   contato?: true
+  descricaoCurta?: true
 }
 
 export type ProjetoMaxAggregateInputType = {
@@ -69,6 +73,7 @@ export type ProjetoMaxAggregateInputType = {
   foto?: true
   banner?: true
   contato?: true
+  descricaoCurta?: true
 }
 
 export type ProjetoCountAggregateInputType = {
@@ -78,6 +83,7 @@ export type ProjetoCountAggregateInputType = {
   foto?: true
   banner?: true
   contato?: true
+  descricaoCurta?: true
   _all?: true
 }
 
@@ -160,6 +166,7 @@ export type ProjetoGroupByOutputType = {
   foto: string | null
   banner: string | null
   contato: string | null
+  descricaoCurta: string
   _count: ProjetoCountAggregateOutputType | null
   _min: ProjetoMinAggregateOutputType | null
   _max: ProjetoMaxAggregateOutputType | null
@@ -190,6 +197,7 @@ export type ProjetoWhereInput = {
   foto?: Prisma.StringNullableFilter<"Projeto"> | string | null
   banner?: Prisma.StringNullableFilter<"Projeto"> | string | null
   contato?: Prisma.StringNullableFilter<"Projeto"> | string | null
+  descricaoCurta?: Prisma.StringFilter<"Projeto"> | string
   posts?: Prisma.PostListRelationFilter
   membros?: Prisma.MembroListRelationFilter
   processosSeletivos?: Prisma.ProcessoSeletivoListRelationFilter
@@ -203,6 +211,7 @@ export type ProjetoOrderByWithRelationInput = {
   foto?: Prisma.SortOrderInput | Prisma.SortOrder
   banner?: Prisma.SortOrderInput | Prisma.SortOrder
   contato?: Prisma.SortOrderInput | Prisma.SortOrder
+  descricaoCurta?: Prisma.SortOrder
   posts?: Prisma.PostOrderByRelationAggregateInput
   membros?: Prisma.MembroOrderByRelationAggregateInput
   processosSeletivos?: Prisma.ProcessoSeletivoOrderByRelationAggregateInput
@@ -219,6 +228,7 @@ export type ProjetoWhereUniqueInput = Prisma.AtLeast<{
   foto?: Prisma.StringNullableFilter<"Projeto"> | string | null
   banner?: Prisma.StringNullableFilter<"Projeto"> | string | null
   contato?: Prisma.StringNullableFilter<"Projeto"> | string | null
+  descricaoCurta?: Prisma.StringFilter<"Projeto"> | string
   posts?: Prisma.PostListRelationFilter
   membros?: Prisma.MembroListRelationFilter
   processosSeletivos?: Prisma.ProcessoSeletivoListRelationFilter
@@ -232,6 +242,7 @@ export type ProjetoOrderByWithAggregationInput = {
   foto?: Prisma.SortOrderInput | Prisma.SortOrder
   banner?: Prisma.SortOrderInput | Prisma.SortOrder
   contato?: Prisma.SortOrderInput | Prisma.SortOrder
+  descricaoCurta?: Prisma.SortOrder
   _count?: Prisma.ProjetoCountOrderByAggregateInput
   _max?: Prisma.ProjetoMaxOrderByAggregateInput
   _min?: Prisma.ProjetoMinOrderByAggregateInput
@@ -247,6 +258,7 @@ export type ProjetoScalarWhereWithAggregatesInput = {
   foto?: Prisma.StringNullableWithAggregatesFilter<"Projeto"> | string | null
   banner?: Prisma.StringNullableWithAggregatesFilter<"Projeto"> | string | null
   contato?: Prisma.StringNullableWithAggregatesFilter<"Projeto"> | string | null
+  descricaoCurta?: Prisma.StringWithAggregatesFilter<"Projeto"> | string
 }
 
 export type ProjetoCreateInput = {
@@ -256,6 +268,7 @@ export type ProjetoCreateInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoCreateNestedManyWithoutProjetoInput
@@ -269,6 +282,7 @@ export type ProjetoUncheckedCreateInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroUncheckedCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedCreateNestedManyWithoutProjetoInput
@@ -282,6 +296,7 @@ export type ProjetoUpdateInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUpdateManyWithoutProjetoNestedInput
@@ -295,6 +310,7 @@ export type ProjetoUncheckedUpdateInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUncheckedUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUncheckedUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedUpdateManyWithoutProjetoNestedInput
@@ -308,6 +324,7 @@ export type ProjetoCreateManyInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
 }
 
 export type ProjetoUpdateManyMutationInput = {
@@ -317,6 +334,7 @@ export type ProjetoUpdateManyMutationInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ProjetoUncheckedUpdateManyInput = {
@@ -326,6 +344,7 @@ export type ProjetoUncheckedUpdateManyInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type ProjetoScalarRelationFilter = {
@@ -340,6 +359,7 @@ export type ProjetoCountOrderByAggregateInput = {
   foto?: Prisma.SortOrder
   banner?: Prisma.SortOrder
   contato?: Prisma.SortOrder
+  descricaoCurta?: Prisma.SortOrder
 }
 
 export type ProjetoMaxOrderByAggregateInput = {
@@ -349,6 +369,7 @@ export type ProjetoMaxOrderByAggregateInput = {
   foto?: Prisma.SortOrder
   banner?: Prisma.SortOrder
   contato?: Prisma.SortOrder
+  descricaoCurta?: Prisma.SortOrder
 }
 
 export type ProjetoMinOrderByAggregateInput = {
@@ -358,6 +379,7 @@ export type ProjetoMinOrderByAggregateInput = {
   foto?: Prisma.SortOrder
   banner?: Prisma.SortOrder
   contato?: Prisma.SortOrder
+  descricaoCurta?: Prisma.SortOrder
 }
 
 export type ProjetoCreateNestedOneWithoutPostsInput = {
@@ -423,6 +445,7 @@ export type ProjetoCreateWithoutPostsInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   membros?: Prisma.MembroCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoCreateNestedManyWithoutProjetoInput
@@ -435,6 +458,7 @@ export type ProjetoUncheckedCreateWithoutPostsInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   membros?: Prisma.MembroUncheckedCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoUncheckedCreateNestedManyWithoutProjetoInput
@@ -463,6 +487,7 @@ export type ProjetoUpdateWithoutPostsInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   membros?: Prisma.MembroUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUpdateManyWithoutProjetoNestedInput
@@ -475,6 +500,7 @@ export type ProjetoUncheckedUpdateWithoutPostsInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   membros?: Prisma.MembroUncheckedUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUncheckedUpdateManyWithoutProjetoNestedInput
@@ -487,6 +513,7 @@ export type ProjetoCreateWithoutMembrosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoCreateNestedManyWithoutProjetoInput
@@ -499,6 +526,7 @@ export type ProjetoUncheckedCreateWithoutMembrosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoUncheckedCreateNestedManyWithoutProjetoInput
@@ -527,6 +555,7 @@ export type ProjetoUpdateWithoutMembrosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUpdateManyWithoutProjetoNestedInput
@@ -539,6 +568,7 @@ export type ProjetoUncheckedUpdateWithoutMembrosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUncheckedUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUncheckedUpdateManyWithoutProjetoNestedInput
@@ -551,6 +581,7 @@ export type ProjetoCreateWithoutProcessosSeletivosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoCreateNestedManyWithoutProjetoInput
@@ -563,6 +594,7 @@ export type ProjetoUncheckedCreateWithoutProcessosSeletivosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroUncheckedCreateNestedManyWithoutProjetoInput
   eventos?: Prisma.EventoUncheckedCreateNestedManyWithoutProjetoInput
@@ -591,6 +623,7 @@ export type ProjetoUpdateWithoutProcessosSeletivosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUpdateManyWithoutProjetoNestedInput
@@ -603,6 +636,7 @@ export type ProjetoUncheckedUpdateWithoutProcessosSeletivosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUncheckedUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUncheckedUpdateManyWithoutProjetoNestedInput
   eventos?: Prisma.EventoUncheckedUpdateManyWithoutProjetoNestedInput
@@ -615,6 +649,7 @@ export type ProjetoCreateWithoutEventosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoCreateNestedManyWithoutProjetoInput
@@ -627,6 +662,7 @@ export type ProjetoUncheckedCreateWithoutEventosInput = {
   foto?: string | null
   banner?: string | null
   contato?: string | null
+  descricaoCurta?: string
   posts?: Prisma.PostUncheckedCreateNestedManyWithoutProjetoInput
   membros?: Prisma.MembroUncheckedCreateNestedManyWithoutProjetoInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedCreateNestedManyWithoutProjetoInput
@@ -655,6 +691,7 @@ export type ProjetoUpdateWithoutEventosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUpdateManyWithoutProjetoNestedInput
@@ -667,6 +704,7 @@ export type ProjetoUncheckedUpdateWithoutEventosInput = {
   foto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   contato?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  descricaoCurta?: Prisma.StringFieldUpdateOperationsInput | string
   posts?: Prisma.PostUncheckedUpdateManyWithoutProjetoNestedInput
   membros?: Prisma.MembroUncheckedUpdateManyWithoutProjetoNestedInput
   processosSeletivos?: Prisma.ProcessoSeletivoUncheckedUpdateManyWithoutProjetoNestedInput
@@ -737,6 +775,7 @@ export type ProjetoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   foto?: boolean
   banner?: boolean
   contato?: boolean
+  descricaoCurta?: boolean
   posts?: boolean | Prisma.Projeto$postsArgs<ExtArgs>
   membros?: boolean | Prisma.Projeto$membrosArgs<ExtArgs>
   processosSeletivos?: boolean | Prisma.Projeto$processosSeletivosArgs<ExtArgs>
@@ -751,6 +790,7 @@ export type ProjetoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   foto?: boolean
   banner?: boolean
   contato?: boolean
+  descricaoCurta?: boolean
 }, ExtArgs["result"]["projeto"]>
 
 export type ProjetoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -760,6 +800,7 @@ export type ProjetoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   foto?: boolean
   banner?: boolean
   contato?: boolean
+  descricaoCurta?: boolean
 }, ExtArgs["result"]["projeto"]>
 
 export type ProjetoSelectScalar = {
@@ -769,9 +810,10 @@ export type ProjetoSelectScalar = {
   foto?: boolean
   banner?: boolean
   contato?: boolean
+  descricaoCurta?: boolean
 }
 
-export type ProjetoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "foto" | "banner" | "contato", ExtArgs["result"]["projeto"]>
+export type ProjetoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "foto" | "banner" | "contato" | "descricaoCurta", ExtArgs["result"]["projeto"]>
 export type ProjetoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   posts?: boolean | Prisma.Projeto$postsArgs<ExtArgs>
   membros?: boolean | Prisma.Projeto$membrosArgs<ExtArgs>
@@ -797,6 +839,7 @@ export type $ProjetoPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     foto: string | null
     banner: string | null
     contato: string | null
+    descricaoCurta: string
   }, ExtArgs["result"]["projeto"]>
   composites: {}
 }
@@ -1230,6 +1273,7 @@ export interface ProjetoFieldRefs {
   readonly foto: Prisma.FieldRef<"Projeto", 'String'>
   readonly banner: Prisma.FieldRef<"Projeto", 'String'>
   readonly contato: Prisma.FieldRef<"Projeto", 'String'>
+  readonly descricaoCurta: Prisma.FieldRef<"Projeto", 'String'>
 }
     
 

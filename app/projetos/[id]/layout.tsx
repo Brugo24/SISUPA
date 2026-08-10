@@ -7,7 +7,6 @@ import { Children } from "react";
 
 export default async function PaginaProjetoLayout({params, children}: {params: Promise<{id : string}>, children : React.ReactNode},){
     const id = (await params).id;
-    console.log(id);
     const projeto = await fetchProjetoPorId(id);
 
     return(
@@ -33,7 +32,7 @@ export default async function PaginaProjetoLayout({params, children}: {params: P
                     />
                 </div>
                 <h2 className="text-2xl font-bold ml-5 mt-8">{projeto?.nome}</h2>
-                <p className="ml-5 mt-2">{projeto?.descricao}</p>
+                <p className="ml-5 mt-2">{projeto?.descricaoCurta}</p>
                 <ProjectNavBar id={id}/>
                 <div className="border-b border-gray-500 mt-1"></div>
                 {children}

@@ -1,6 +1,6 @@
 'use server';
 import { Projeto } from "@/prisma/lib/generated/prisma-client/client";
-import { PostComProjeto} from "./definitions";
+import { PostComProjeto, ImagemMedia} from "./definitions";
 import { prisma } from "./prisma";
 
 export async function fetchPosts(idAtual : string) {
@@ -135,6 +135,52 @@ export async function fetchPostsporProjeto(idProjeto: string, idAtual: string) {
         },
         orderBy:{
             postadoEm:"desc"
+        }
+    })
+
+    return data;
+}
+
+export async function fetchImagensIniciaisPorProjeto(idProjeto : string) {
+    const data : ImagemMedia[] = await prisma.post.findMany({
+        take: 5,
+        where:{
+            imagens:{
+                not: null
+            },
+            projetoId: idProjeto
+        },
+        select:{
+            imagens: true,
+            id: true
+        },
+        orderBy:{
+            postadoEm: "desc"
+        }
+    })
+
+    return data;
+}
+
+export async function fetchImagensPorProjeto(idProjeto : string, idAtual : string) {
+    const data : ImagemMedia[] = await prisma.post.findMany({
+        take: 5,
+        skip: 1,
+        where:{
+            imagens:{
+                not: null
+            },
+            projetoId: idProjeto
+        },
+        select:{
+            imagens: true,
+            id: true
+        },
+        orderBy:{
+            postadoEm: "desc"
+        },
+        cursor:{
+            id: idAtual
         }
     })
 

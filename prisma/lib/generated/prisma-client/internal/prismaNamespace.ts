@@ -911,7 +911,8 @@ export const ProjetoScalarFieldEnum = {
   descricao: 'descricao',
   foto: 'foto',
   banner: 'banner',
-  contato: 'contato'
+  contato: 'contato',
+  descricaoCurta: 'descricaoCurta'
 } as const
 
 export type ProjetoScalarFieldEnum = (typeof ProjetoScalarFieldEnum)[keyof typeof ProjetoScalarFieldEnum]

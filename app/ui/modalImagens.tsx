@@ -33,7 +33,7 @@ export default function ModalDeImagens({ modalImage, setModalImage, postImgs }: 
     }
 
     const conteudoModal = (
-        <div className="fixed flex items-center bg-black/85 inset-0 justify-center p-4" onClick={() => {setModalImage(null)}}>
+        <div className="fixed flex items-center bg-black/85 inset-0 justify-center p-4 z-20" onClick={() => {setModalImage(null)}}>
             {postImgs[modalImage-1] && (
                 <button className="absolute left-24 h-10 w-10 rounded-2xl bg-black mr-4 hover:bg-gray-700 hover:cursor-pointer" onClick={(e) => {
                     e.stopPropagation();
