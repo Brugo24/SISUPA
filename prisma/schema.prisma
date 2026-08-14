@@ -93,6 +93,7 @@ model Evento {
   local     String
   data      DateTime
   horario   DateTime
+  banner    String?
   projetoId String      @map("projeto")
 
   // Relação: Um Evento pertence a um Projeto

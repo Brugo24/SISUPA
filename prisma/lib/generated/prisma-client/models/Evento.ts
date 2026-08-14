@@ -31,6 +31,7 @@ export type EventoMinAggregateOutputType = {
   local: string | null
   data: Date | null
   horario: Date | null
+  banner: string | null
   projetoId: string | null
 }
 
@@ -41,6 +42,7 @@ export type EventoMaxAggregateOutputType = {
   local: string | null
   data: Date | null
   horario: Date | null
+  banner: string | null
   projetoId: string | null
 }
 
@@ -51,6 +53,7 @@ export type EventoCountAggregateOutputType = {
   local: number
   data: number
   horario: number
+  banner: number
   projetoId: number
   _all: number
 }
@@ -63,6 +66,7 @@ export type EventoMinAggregateInputType = {
   local?: true
   data?: true
   horario?: true
+  banner?: true
   projetoId?: true
 }
 
@@ -73,6 +77,7 @@ export type EventoMaxAggregateInputType = {
   local?: true
   data?: true
   horario?: true
+  banner?: true
   projetoId?: true
 }
 
@@ -83,6 +88,7 @@ export type EventoCountAggregateInputType = {
   local?: true
   data?: true
   horario?: true
+  banner?: true
   projetoId?: true
   _all?: true
 }
@@ -166,6 +172,7 @@ export type EventoGroupByOutputType = {
   local: string
   data: Date
   horario: Date
+  banner: string | null
   projetoId: string
   _count: EventoCountAggregateOutputType | null
   _min: EventoMinAggregateOutputType | null
@@ -197,6 +204,7 @@ export type EventoWhereInput = {
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
+  banner?: Prisma.StringNullableFilter<"Evento"> | string | null
   projetoId?: Prisma.StringFilter<"Evento"> | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }
@@ -208,6 +216,7 @@ export type EventoOrderByWithRelationInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  banner?: Prisma.SortOrderInput | Prisma.SortOrder
   projetoId?: Prisma.SortOrder
   projeto?: Prisma.ProjetoOrderByWithRelationInput
 }
@@ -222,6 +231,7 @@ export type EventoWhereUniqueInput = Prisma.AtLeast<{
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
+  banner?: Prisma.StringNullableFilter<"Evento"> | string | null
   projetoId?: Prisma.StringFilter<"Evento"> | string
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }, "id">
@@ -233,6 +243,7 @@ export type EventoOrderByWithAggregationInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  banner?: Prisma.SortOrderInput | Prisma.SortOrder
   projetoId?: Prisma.SortOrder
   _count?: Prisma.EventoCountOrderByAggregateInput
   _max?: Prisma.EventoMaxOrderByAggregateInput
@@ -249,6 +260,7 @@ export type EventoScalarWhereWithAggregatesInput = {
   local?: Prisma.StringWithAggregatesFilter<"Evento"> | string
   data?: Prisma.DateTimeWithAggregatesFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeWithAggregatesFilter<"Evento"> | Date | string
+  banner?: Prisma.StringNullableWithAggregatesFilter<"Evento"> | string | null
   projetoId?: Prisma.StringWithAggregatesFilter<"Evento"> | string
 }
 
@@ -259,6 +271,7 @@ export type EventoCreateInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
   projeto: Prisma.ProjetoCreateNestedOneWithoutEventosInput
 }
 
@@ -269,6 +282,7 @@ export type EventoUncheckedCreateInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
   projetoId: string
 }
 
@@ -279,6 +293,7 @@ export type EventoUpdateInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projeto?: Prisma.ProjetoUpdateOneRequiredWithoutEventosNestedInput
 }
 
@@ -289,6 +304,7 @@ export type EventoUncheckedUpdateInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projetoId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -299,6 +315,7 @@ export type EventoCreateManyInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
   projetoId: string
 }
 
@@ -309,6 +326,7 @@ export type EventoUpdateManyMutationInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type EventoUncheckedUpdateManyInput = {
@@ -318,6 +336,7 @@ export type EventoUncheckedUpdateManyInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projetoId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
@@ -338,6 +357,7 @@ export type EventoCountOrderByAggregateInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  banner?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
 }
 
@@ -348,6 +368,7 @@ export type EventoMaxOrderByAggregateInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  banner?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
 }
 
@@ -358,6 +379,7 @@ export type EventoMinOrderByAggregateInput = {
   local?: Prisma.SortOrder
   data?: Prisma.SortOrder
   horario?: Prisma.SortOrder
+  banner?: Prisma.SortOrder
   projetoId?: Prisma.SortOrder
 }
 
@@ -410,6 +432,7 @@ export type EventoCreateWithoutProjetoInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
 }
 
 export type EventoUncheckedCreateWithoutProjetoInput = {
@@ -419,6 +442,7 @@ export type EventoUncheckedCreateWithoutProjetoInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
 }
 
 export type EventoCreateOrConnectWithoutProjetoInput = {
@@ -457,6 +481,7 @@ export type EventoScalarWhereInput = {
   local?: Prisma.StringFilter<"Evento"> | string
   data?: Prisma.DateTimeFilter<"Evento"> | Date | string
   horario?: Prisma.DateTimeFilter<"Evento"> | Date | string
+  banner?: Prisma.StringNullableFilter<"Evento"> | string | null
   projetoId?: Prisma.StringFilter<"Evento"> | string
 }
 
@@ -467,6 +492,7 @@ export type EventoCreateManyProjetoInput = {
   local: string
   data: Date | string
   horario: Date | string
+  banner?: string | null
 }
 
 export type EventoUpdateWithoutProjetoInput = {
@@ -476,6 +502,7 @@ export type EventoUpdateWithoutProjetoInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type EventoUncheckedUpdateWithoutProjetoInput = {
@@ -485,6 +512,7 @@ export type EventoUncheckedUpdateWithoutProjetoInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type EventoUncheckedUpdateManyWithoutProjetoInput = {
@@ -494,6 +522,7 @@ export type EventoUncheckedUpdateManyWithoutProjetoInput = {
   local?: Prisma.StringFieldUpdateOperationsInput | string
   data?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   horario?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  banner?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -505,6 +534,7 @@ export type EventoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   local?: boolean
   data?: boolean
   horario?: boolean
+  banner?: boolean
   projetoId?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["evento"]>
@@ -516,6 +546,7 @@ export type EventoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   local?: boolean
   data?: boolean
   horario?: boolean
+  banner?: boolean
   projetoId?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["evento"]>
@@ -527,6 +558,7 @@ export type EventoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   local?: boolean
   data?: boolean
   horario?: boolean
+  banner?: boolean
   projetoId?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["evento"]>
@@ -538,10 +570,11 @@ export type EventoSelectScalar = {
   local?: boolean
   data?: boolean
   horario?: boolean
+  banner?: boolean
   projetoId?: boolean
 }
 
-export type EventoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "local" | "data" | "horario" | "projetoId", ExtArgs["result"]["evento"]>
+export type EventoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "local" | "data" | "horario" | "banner" | "projetoId", ExtArgs["result"]["evento"]>
 export type EventoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }
@@ -564,6 +597,7 @@ export type $EventoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     local: string
     data: Date
     horario: Date
+    banner: string | null
     projetoId: string
   }, ExtArgs["result"]["evento"]>
   composites: {}
@@ -995,6 +1029,7 @@ export interface EventoFieldRefs {
   readonly local: Prisma.FieldRef<"Evento", 'String'>
   readonly data: Prisma.FieldRef<"Evento", 'DateTime'>
   readonly horario: Prisma.FieldRef<"Evento", 'DateTime'>
+  readonly banner: Prisma.FieldRef<"Evento", 'String'>
   readonly projetoId: Prisma.FieldRef<"Evento", 'String'>
 }
     

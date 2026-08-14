@@ -18,3 +18,14 @@ export type ImagemMedia = Prisma.PostGetPayload<{
         id: true
     }
 }>
+
+export type EventoComProjeto = Prisma.EventoGetPayload<{
+    include:{
+        projeto:{
+            select:{
+                foto: true,
+                nome: true
+            }
+        }
+    }
+}>
