@@ -1,3 +1,7 @@
 export default function Eventos(){
-    return(<></>)
+    return(
+        <div>
+            
+        </div>
+    )
 }
