@@ -13,13 +13,14 @@ export default function BannerModalButton({image} : {image: string}){
     }
 
     return(
-        <div className="p-4">
-            <button className="hover:cursor-pointer overflow-hidden relative h-48 rounded-2xl w-2/3" onClick={() => abrirModal(0)}>
+        <div className="">
+            <button className="block w-full h-auto my-4 overflow-hidden rounded-2xl hover:cursor-pointer group" onClick={() => abrirModal(0)}>
                 <Image 
-                className="object-cover object-[50%_80%]"
+                className="object-cover object-[50%_50%] rounded-2xl"
                 src={image}
                 alt="Imagem do Post"
-                fill
+                width={1200}
+                height={0}
                 unoptimized
                 />
             </button>

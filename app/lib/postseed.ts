@@ -157,32 +157,62 @@ async function main() {
 
   console.log('⏳ Iniciando a inserção dos 17 novos posts de teste...');
   
-  const atuma = `# 🚀 Projeto Sisupa System: Plataforma de Gestão Integrada
+  const atuma = `# 🚀 DevSummit Bauru 2026: O Futuro da Web & IA
 
-O **Sisupa System** é uma iniciativa desenvolvida para modernizar a centralização e o acompanhamento de projetos corporativos e acadêmicos. Esta plataforma foi concebida para substituir fluxos de trabalho descentralizados por um ecossistema único, dinâmico e focado na usabilidade.
+> *O maior encontro de tecnologia do interior paulista está de volta para sua 4ª edição.*
 
----
+![Banner Principal do Evento](https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80)
 
-### 🎯 Objetivos do Projeto
-
-* **Centralização de Informações:** Reunir dados operacionais, cronogramas de eventos, mídias e relatórios em um único dashboard acessível.
-* **Transparência e Acompanhamento:** Permitir que gestores e usuários acompanhem o progresso das fases em tempo real por meio de um feed interativo.
-* **Otimização de Performance:** Garantir que grandes volumes de dados e galerias de imagem sejam carregados de forma rápida e eficiente.
+O **DevSummit Bauru 2026** reúne desenvolvedores, designers e entusiastas de tecnologia para um dia imersivo de aprendizado, networking e inovação. Este ano, o foco principal será a integração de **Inteligência Artificial generativa nas rotinas de desenvolvimento web** e novas arquiteturas no ecossistema React/Next.js.
 
 ---
 
-### 💡 Principais Diferenciais
+## 📌 O que você vai aprender?
 
-1. **Navegação Modular:** Estrutura organizada em apresentações, feeds de atualizações, eventos e mídias dedicadas.
-2. **Experiência Visual Fluida:** Galeria de mídias responsiva com suporte a carregamento contínuo (infinite scroll).
-3. **Arquitetura de Alta Disponibilidade:** Construído com tecnologias modernas que garantem segurança de dados e rápido tempo de resposta.
+* **Next.js & Server Components:** Boas práticas e padrões de arquitetura para alta performance.
+* **IA Aplicada ao Dev:** Como construir aplicações com LLMs e agentes autônomos.
+* **UI/UX Moderno:** Design Systems com Tailwind CSS e acessibilidade nativa.
+
+![Palestrante no palco](https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80)
 
 ---
 
-### 📊 Status e Impacto Esperado
+## 🗓️ Cronograma do Evento
 
-Atualmente, o projeto encontra-se em fase de consolidação e testes de bancada. Espera-se uma **redução de 40% no tempo gasto em buscas por documentos** e um aumento significativo no engajamento dos membros da equipe através do acompanhamento visual das entregas.`
+| Horário | Atividade | Local |
+| :--- | :--- | :--- |
+| **08:30** | Credenciamento & Welcome Coffee ☕ | Saguão Principal |
+| **09:30** | Keynote: *O Futuro do Desenvolvimento Web* | Auditório A |
+| **11:00** | Workshop: *Construindo APIs com Next.js e Prisma* | Lab 02 |
+| **12:30** | Almoço & Networking 🍕 | Área de Convivência |
+| **14:00** | Painel: *Carreira Dev em Tempos de IA* | Auditório A |
+| **17:30** | Encerramento & Happy Hour 🍻 | Terraço |
 
+---
+
+## 📍 Localização e Infraestrutura
+
+O evento acontecerá no **Centro de Convenções de Bauru**, com estrutura completa acessível, Wi-Fi de alta velocidade e estações de recarga para notebooks.
+
+> **Aviso:** Traga seu próprio notebook caso vá participar dos workshops práticos!
+
+### Como Chegar?
+* **Endereço:** Av. Nações Unidas, 15-00 - Bauru/SP
+* **Estacionamento:** Gratuito no local para participantes credenciados.
+
+---
+
+### 🎟️ Garanta seu ingresso
+As vagas para os workshops são **limitadas**. Clique no botão de inscrição no topo da página e garanta o seu lote promocional até **10 de Setembro**!`
+
+  const laba = await prisma.evento.update({
+    where:{
+      id: "cmqflqiev0009n4xwpfza0pz8"
+    },
+    data:{
+      descricao: atuma
+    }
+  })
 
   console.log(`✅ Sucesso total! posts foram inseridos.`);
 

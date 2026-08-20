@@ -30,7 +30,7 @@ export default function NavLinks(){
                         key={link.name}
                         href={link.href}
                         className={clsx('flex h-12 items-center text-base font-medium hover:bg-sky-100 pl-4',
-                            {'bg-sky-100, text-blue-600': pathname === link.href}
+                            {'bg-sky-100, text-blue-600': pathname.includes(link.href)}
                         )}
                     >
                         <LinkIcon className="w-6"/>

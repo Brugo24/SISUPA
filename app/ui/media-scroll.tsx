@@ -36,7 +36,6 @@ export default function MediaScroll({id} : {id : string}){
     }
 
     function abrirModal(id : string, indexImagem : number){
-        console.log("teste")
         const postImgsString = imagesObj.find(imagesObj => imagesObj.id === id);
         const Imgs = postImgsString?.imagens ? JSON.parse(postImgsString.imagens) as string[] : [];
         setPostImgs(Imgs);
