@@ -43,6 +43,7 @@ export default async function EventPage(props: {params: Promise<{id : string}>})
                     </div>
                 </div>
                 <article className="prose max-w-none text-lg leading-relaxed mt-5">
+                <h2 className="text-2xl font-bold">{event?.nome}</h2>
                 <ReactMarkdown
                 components={{
                     img: ({ src, alt }) => {
