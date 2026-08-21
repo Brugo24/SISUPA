@@ -16,7 +16,7 @@ export default async function EventPage(props: {params: Promise<{id : string}>})
             <div className="p-4 w-2/3">
                 <BannerModalButton image={bannerImg} isBanner={true}/>
                 <div className="flex flex-row flex-1 my-2">
-                    <div className="rounded-full border-2 border-gray-400 w-20 h-20 overflow-hidden">
+                    <div className="rounded-full border-2 border-gray-400 w-25 h-25 overflow-hidden">
                         <Image 
                         className="object-cover"
                         src={event?.projeto.foto || `https://ui-avatars.com/api/?name=${event?.projeto.nome}&background=0D8ABC&color=fff&size=128`}
@@ -42,7 +42,7 @@ export default async function EventPage(props: {params: Promise<{id : string}>})
                         </div>
                     </div>
                 </div>
-                <article className="prose max-w-none text-lg leading-relaxed">
+                <article className="prose max-w-none text-lg leading-relaxed mt-5">
                 <ReactMarkdown
                 components={{
                     img: ({ src, alt }) => {

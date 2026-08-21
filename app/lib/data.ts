@@ -187,9 +187,27 @@ export async function fetchImagensPorProjeto(idProjeto : string, idAtual : strin
     return data;
 }
 
-export async function fetchEventoComProjetoIniciais() {
+export async function fetchEventByID(eventId : string) {
+    const data = await prisma.evento.findUnique({
+        where:{
+            id: eventId
+        },
+        include:{
+            projeto:{
+                select:{
+                    nome: true,
+                    foto: true
+                }
+            }
+        }
+    })
+
+    return data;
+}
+
+export async function fetchInitialEvents() {
     const data : EventoComProjeto[] = await prisma.evento.findMany({
-        take: 1,
+        take: 15,
         orderBy:{
             data: "desc"
         },
@@ -206,18 +224,23 @@ export async function fetchEventoComProjetoIniciais() {
     return data;
 }
 
-export async function fetchEventByID(eventId : string) {
-    const data = await prisma.evento.findUnique({
-        where:{
-            id: eventId
+export async function fetchEvents(lastID: string) {
+    const data : EventoComProjeto[] = await prisma.evento.findMany({
+        take: 15,
+        skip: 1,
+        orderBy:{
+            data: "desc"
         },
         include:{
             projeto:{
                 select:{
-                    nome: true,
-                    foto: true
+                    foto: true,
+                    nome:true
                 }
             }
+        },
+        cursor:{
+            id: lastID
         }
     })
 

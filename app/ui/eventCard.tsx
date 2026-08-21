@@ -5,7 +5,7 @@ import { MapPinIcon, ClockIcon, CalendarDaysIcon } from "@heroicons/react/16/sol
 
 export default function EventCard({event} : {event: EventoComProjeto}){
     return(
-        <Link className="w-100 h-45 rounded-md grid grid-cols-1 grid-rows-10 overflow-hidden border-3 border-gray-400" href={`/eventos/${event.id}`}>
+        <Link className="w-95 h-45 rounded-md grid grid-cols-1 grid-rows-10 overflow-hidden border-3 border-gray-400" href={`/eventos/${event.id}`}>
             <div className="w-full h-full relative row-span-3">
                 <Image
                 className="object-cover"
