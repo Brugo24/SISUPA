@@ -34,11 +34,11 @@ export default function EventCard({event} : {event: EventoComProjeto}){
                     </div>
                     <div className="flex flex-row">
                         <CalendarDaysIcon className="w-4 mr-2"/>
-                        <p>{event.data.toDateString()}</p>
+                        <p>{event.data.toLocaleDateString('pt-BR')}</p>
                     </div>
                     <div className="flex flex-row">
                         <ClockIcon className="w-4 mr-2"/>
-                        <p>{event.horario.toTimeString()}</p>
+                        <p>{event.horario.toLocaleTimeString('pt-BR')}</p>
                     </div>
                 </div>
             </div>
