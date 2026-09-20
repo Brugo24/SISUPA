@@ -15,7 +15,7 @@ export default function BannerModalButton({image, isBanner} : {image: string, is
     if(isBanner){
         return(
             <div className="">
-                <button className="relative w-full h-40 my-4 overflow-hidden rounded-2xl hover:cursor-pointer group" onClick={() => abrirModal(0)}>
+                <button className="relative w-full h-40 my-4 overflow-hidden rounded-2xl hover:cursor-pointer group" onClick={(e) => abrirModal(0)}>
                     <Image 
                     className="object-cover object-[50%_50%] rounded-2xl"
                     src={image}

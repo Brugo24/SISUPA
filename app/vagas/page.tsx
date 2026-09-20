@@ -1,7 +1,19 @@
+import ProcessesScroll from "../ui/processesScroll";
+import SearchBar from "../ui/searchbar";
 
+export default async function Vagas(props: {
+    searchParams?: Promise<{
+        query?: string
+    }>;
+}){
 
-export default function Vagas(){
+    const params = await props.searchParams;
+    const query = params?.query || '';
+
     return(
-        <p>Vagas de projetos</p>
+        <div className="p-8">
+            <SearchBar placeholder="Pesquise seu Processo Seletivo..."/>
+            <ProcessesScroll query={query}/>
+        </div>
     )
 }

@@ -22,7 +22,7 @@ export default function SearchBar({placeholder} : {placeholder : string}) {
     },300)
 
     return(
-        <div className="w-full h-8 flex border border-gray-500 rounded-md">
+        <div className="w-full h-8 flex border border-gray-500 rounded-md mb-4">
             <MagnifyingGlassIcon className="w-6"/>
             <input
             className=" w-full ml-2"

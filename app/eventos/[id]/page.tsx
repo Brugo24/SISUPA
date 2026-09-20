@@ -11,6 +11,17 @@ export default async function EventPage(props: {params: Promise<{id : string}>})
     const event = await fetchEventByID(id);
     const bannerImg = event?.banner || '/placeholder/placeholder_banner.jpg';
 
+    const horario = new Date(event?.horario || '').toLocaleTimeString('pt-BR', {
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'UTC'
+        });
+
+    const diaDaSemana = new Date(event?.data || '').toLocaleDateString('pt-BR', {
+        weekday: 'long',
+        timeZone: 'UTC'
+        });
+
     return(
         <div className="w-full flex flex-row">
             <div className="p-4 w-2/3">
@@ -34,11 +45,11 @@ export default async function EventPage(props: {params: Promise<{id : string}>})
                         </div>
                         <div className="flex flex-row">
                             <CalendarDaysIcon className="w-4 mr-2"/>
-                            <p>{event?.data.toDateString()}</p>
+                            <p>{diaDaSemana} {event?.data.toLocaleDateString('pt-BR')}</p>
                         </div>
                         <div className="flex flex-row">
                             <ClockIcon className="w-4 mr-2"/>
-                            <p>{event?.horario.toTimeString()}</p>
+                            <p>{horario}</p>
                         </div>
                     </div>
                 </div>

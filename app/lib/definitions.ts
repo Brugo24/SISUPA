@@ -29,3 +29,14 @@ export type EventoComProjeto = Prisma.EventoGetPayload<{
         }
     }
 }>
+
+export type ProcessWithProject = Prisma.ProcessoSeletivoGetPayload<{
+    include:{
+        projeto:{
+            select:{
+                foto: true,
+                nome: true
+            }
+        }
+    }
+}>

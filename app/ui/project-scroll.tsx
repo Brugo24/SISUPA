@@ -37,7 +37,7 @@ export default function ProjectScroll({query} : {query : string}) {
     }
 
     return(
-        <div className="mt-10 flex flex-1 flex-row flex-wrap">
+        <div className="mt-6 flex flex-1 flex-row flex-wrap">
             {projetos && projetos.map((projeto,index) => {
                 return (<div className="m-3" key={index}>
                     <ProjectCard projeto={projeto}/>

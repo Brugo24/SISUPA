@@ -15,7 +15,7 @@ const links = [
     {name:'Página inicial', href: '/inicial', icon: HomeIcon},
     {name:'Projetos', href: '/projetos', icon: PresentationChartBarIcon},
     {name:'Eventos', href: '/eventos', icon: CalendarDaysIcon},
-    {name:'Processos abertos', href: '/vagas', icon: ClipboardDocumentListIcon},
+    {name:'Inscrições abertas', href: '/vagas', icon: ClipboardDocumentListIcon},
     {name:'Minhas inscrições', href: '/inscricoes', icon: ClipboardDocumentCheckIcon}
 ];
 
