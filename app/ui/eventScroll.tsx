@@ -5,7 +5,7 @@ import { EventoComProjeto } from "../lib/definitions";
 import { fetchInitialEvents, fetchEvents } from "../lib/data";
 import ObserverTarget from "./observer";
 
-export default function EventScroll({query} : {query : string}) {
+export default function EventScroll({query, id} : {query? : string, id? : string}) {
 
     const [events, setEvents] = useState<EventoComProjeto[]>([]);
     const [lastId, setLastId] = useState<string>();
@@ -15,7 +15,7 @@ export default function EventScroll({query} : {query : string}) {
             setEvents([]);
             setLastId(undefined);
 
-            const initialEvents = await fetchInitialEvents(query);
+            const initialEvents = await fetchInitialEvents(query, id);
             if(initialEvents.length > 0){
                 setEvents(initialEvents);
                 setLastId(initialEvents[initialEvents.length-1].id);
@@ -36,7 +36,7 @@ export default function EventScroll({query} : {query : string}) {
     }
 
     return(
-        <div className="flex flex-row gap-4 flex-wrap">
+        <div className={`flex-row gap-4 flex-wrap grid ${id ? 'grid-cols-2' : 'grid-cols-3'} `} >
             {events.map((event,index) => {
                 return(
                     <EventCard event={event} key={index}/>

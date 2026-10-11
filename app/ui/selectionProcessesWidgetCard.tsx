@@ -13,7 +13,7 @@ export default function SelectionProcessesWidgetCard({selectionProcess} : {selec
 
     return(
         <div>
-            <button className="flex flex-row border border-gray-400 rounded-md w-full shadow-md hover: cursor-pointer" onClick={() => setModal(true)}>
+            <button className="flex flex-row border border-gray-400 rounded-md w-full shadow-md hover: cursor-pointer pr-1" onClick={() => setModal(true)}>
                 <div className="rounded-full w-fit border-2 border-gray-400 overflow-hidden ml-2 my-auto">
                     <Image 
                         className="object-cover"

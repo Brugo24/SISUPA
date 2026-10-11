@@ -22,7 +22,7 @@ export default function EventCard({event} : {event: EventoComProjeto}){
 
     return(
         <div>
-            <button className="w-95 h-50 rounded-md grid grid-cols-1 grid-rows-10 overflow-hidden border-3 border-gray-400 hover: cursor-pointer" onClick={() => {setModal(true)}}>
+            <button className="w-full h-50 rounded-md grid grid-cols-1 grid-rows-10 overflow-hidden border-3 border-gray-400 hover: cursor-pointer" onClick={() => {setModal(true)}}>
                 <div className="w-full h-full relative row-span-3">
                     <Image
                     className="object-cover"
@@ -44,19 +44,19 @@ export default function EventCard({event} : {event: EventoComProjeto}){
                         />  
                     </div>
                     <div className="ml-2">
-                        <p className="text-left text-xs">{event.projeto.nome}</p>
-                        <p className="text-left text-lg font-bold">{event.nome}</p>
+                        <p className="text-left text-xs line-clamp-1">{event.projeto.nome}</p>
+                        <p className="text-left text-lg font-bold line-clamp-1">{event.nome}</p>
                         <div className="flex flex-row">
                             <MapPinIcon className="w-4 mr-2"/>
-                            <p>{event.local}</p>
+                            <p className="line-clamp-1">{event.local}</p>
                         </div>
                         <div className="flex flex-row">
                             <CalendarDaysIcon className="w-4 mr-2"/>
-                            <p>{diaDaSemana} {event.data.toLocaleDateString('pt-BR')}</p>
+                            <p className="line-clamp-1">{diaDaSemana} {event.data.toLocaleDateString('pt-BR')}</p>
                         </div>
                         <div className="flex flex-row">
                             <ClockIcon className="w-4 mr-2"/>
-                            <p>{horario}</p>
+                            <p className="line-clamp-1">{horario}</p>
                         </div>
                     </div>
                 </div>

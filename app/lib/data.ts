@@ -205,7 +205,7 @@ export async function fetchEventByID(eventId : string) {
     return data;
 }
 
-export async function fetchInitialEvents(query: string) {
+export async function fetchInitialEvents(query?: string, id?: string) {
     const data : EventoComProjeto[] = await prisma.evento.findMany({
         take: 15,
         where:{
@@ -224,7 +224,8 @@ export async function fetchInitialEvents(query: string) {
                         }
                     }
                 }
-            ]
+            ],
+            projetoId: id
         },
         orderBy:{
             data: "desc"
@@ -242,7 +243,7 @@ export async function fetchInitialEvents(query: string) {
     return data;
 }
 
-export async function fetchEvents(lastID: string, query: string) {
+export async function fetchEvents(lastID: string, query?: string, id?: string) {
     const data : EventoComProjeto[] = await prisma.evento.findMany({
         take: 15,
         skip: 1,
@@ -262,7 +263,8 @@ export async function fetchEvents(lastID: string, query: string) {
                         }
                     }
                 }
-            ]
+            ],
+            projetoId: id
         },
         orderBy:{
             data: "desc"
