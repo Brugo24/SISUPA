@@ -6,14 +6,14 @@ import ObserverTarget from "./observer";
 import PostComponent from "./post";
 import { useEffect } from "react";
 
-export default function PostScroll(){
+export default function PostScroll({id} : {id?: string}){
 
     const [posts, setPosts] = useState<PostComProjeto[]>([]);
     const [ultimoId, setultimoId] = useState<string | undefined>(undefined);
 
     useEffect(() => {
         async function carregarPostsIniciais() {
-            const postsIniciais = await fetchPostsIniciais();
+            const postsIniciais = await fetchPostsIniciais(id);
             setPosts(postsIniciais);
 
             if(postsIniciais.length > 0){
@@ -26,7 +26,7 @@ export default function PostScroll(){
 
     async function carregarPosts() {
         if(!ultimoId) return;
-        const postsNovos = await fetchPosts(ultimoId);
+        const postsNovos = await fetchPosts(ultimoId, id);
 
         if(postsNovos.length > 0){
             setPosts([...posts, ...postsNovos]);

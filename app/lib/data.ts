@@ -3,7 +3,7 @@ import { Projeto } from "@/prisma/lib/generated/prisma-client/client";
 import { PostComProjeto, ImagemMedia, EventoComProjeto, ProcessWithProject} from "./definitions";
 import { prisma } from "./prisma";
 
-export async function fetchPosts(idAtual : string) {
+export async function fetchPosts(idAtual : string, id?: string) {
     const data : PostComProjeto[] = await prisma.post.findMany({
         take: 5,
         skip: 1,
@@ -20,13 +20,16 @@ export async function fetchPosts(idAtual : string) {
         },
         orderBy:{
             postadoEm:"desc"
+        },
+        where:{
+            projetoId: id
         }
     });
 
     return data;
 }
 
-export async function fetchPostsIniciais() {
+export async function fetchPostsIniciais(id?: string) {
     const data : PostComProjeto[] = await prisma.post.findMany({
         take: 5,
         include:{
@@ -39,6 +42,9 @@ export async function fetchPostsIniciais() {
         },
         orderBy: {
             postadoEm: "desc"
+        },
+        where:{
+            projetoId: id
         }
     });
 
@@ -228,7 +234,7 @@ export async function fetchInitialEvents(query?: string, id?: string) {
             projetoId: id
         },
         orderBy:{
-            data: "desc"
+            data: "asc"
         },
         include:{
             projeto:{
@@ -267,7 +273,7 @@ export async function fetchEvents(lastID: string, query?: string, id?: string) {
             projetoId: id
         },
         orderBy:{
-            data: "desc"
+            data: "asc"
         },
         include:{
             projeto:{

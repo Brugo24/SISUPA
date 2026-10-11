@@ -27,7 +27,7 @@ export default function EventScroll({query, id} : {query? : string, id? : string
 
     async function loadMoreEvents(){
         if(!lastId) return;
-        const newEvents = await fetchEvents(lastId, query);
+        const newEvents = await fetchEvents(lastId, query, id);
 
         if(newEvents.length > 0){
             setEvents([...events, ...newEvents]);
