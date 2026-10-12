@@ -104,7 +104,9 @@ export type ProjetoScalarFieldEnum = (typeof ProjetoScalarFieldEnum)[keyof typeo
 export const UsuarioScalarFieldEnum = {
   id: 'id',
   RA: 'RA',
-  nome: 'nome'
+  nome: 'nome',
+  email: 'email',
+  senha: 'senha'
 } as const
 
 export type UsuarioScalarFieldEnum = (typeof UsuarioScalarFieldEnum)[keyof typeof UsuarioScalarFieldEnum]

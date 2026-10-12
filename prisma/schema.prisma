@@ -47,8 +47,10 @@ model Projeto {
 
 model Usuario {
   id      String      @id @default(cuid())
-  RA      Int
+  RA      Int         @unique
   nome    String
+  email   String      @unique
+  senha   String
   
   // Relação reversa com a tabela pivot de membros
   membros Membro[]
