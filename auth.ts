@@ -20,7 +20,7 @@ async function getUser(email : string) : Promise<Usuario | undefined> {
     }
 }
 
-export const {auth, signIn, signOut} = NextAuth({
+export const {handlers, auth, signIn, signOut} = NextAuth({
     ...authConfig,
     providers: [
         Credentials({

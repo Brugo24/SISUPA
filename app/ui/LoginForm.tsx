@@ -11,7 +11,7 @@ import { useSearchParams } from 'next/navigation';
 
 export default function LoginForm() {
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  const callbackUrl = searchParams.get('callbackUrl') || '/inicial';
   const [errorMessage, formAction, isPending] = useActionState(authenticate, undefined);
 
   return (
@@ -62,8 +62,8 @@ export default function LoginForm() {
           </div>
         </div>
         <input type="hidden" name="redirectTo" value={callbackUrl} />
-        <button className="mt-4 w-full" aria-disabled={isPending}>
-          Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+        <button className="mt-4 w-full h-10 hover:cursor-pointer bg-blue-400 rounded-md justify-center" aria-disabled={isPending}>
+          <span className='my-auto text-white text-2x'>Log in</span>
         </button>
         <div className="flex h-8 items-end space-x-1" aria-live="polite" aria-atomic="true">
           {errorMessage && (

@@ -14,6 +14,9 @@ export default function LoginPage() {
         </div>
         <Suspense>
           <LoginForm />
+          <button className="mt-4 w-full h-10 hover:cursor-pointer bg-white border border-gray-500 rounded-md justify-center" >
+            <span className='my-aut text-2x'>Register</span>
+          </button>
         </Suspense>
       </div>
     </main>

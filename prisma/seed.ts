@@ -37,22 +37,7 @@ async function main() {
     }
   });
 
-  // ==========================================
-  // 2. CRIANDO OS USUÁRIOS
-  // ==========================================
-  const usuario1 = await prisma.usuario.create({
-    data: {
-      nome: 'Lucas Silva Pedrosa',
-      RA: 22441133
-    }
-  });
-
-  const usuario2 = await prisma.usuario.create({
-    data: {
-      nome: 'Beatriz Santos Oliveira',
-      RA: 22441155
-    }
-  });
+  
 
   // ==========================================
   // 3. CRIANDO OS POSTS
