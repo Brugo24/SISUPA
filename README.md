@@ -8,7 +8,7 @@ O **SISUPA** é uma aplicação web desenvolvida para a centralização, unifica
 
 Você pode acessar a aplicação rodando em produção através do link abaixo:
 
-👉 **[Acesse o SISUPA aqui](sisupa-orcin.vercel.app)**
+👉 **[Acesse o SISUPA aqui](sisupa-orcin.vercel.app/inicial)**
 
 ---
 
