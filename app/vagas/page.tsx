@@ -11,9 +11,11 @@ export default async function Vagas(props: {
     const query = params?.query || '';
 
     return(
-        <div className="p-8">
-            <SearchBar placeholder="Pesquise seu Processo Seletivo..."/>
-            <ProcessesScroll query={query}/>
+        <div>
+            <div className="p-8">
+                <SearchBar placeholder="Pesquise seu Processo Seletivo..."/>
+                <ProcessesScroll query={query}/>
+            </div>
         </div>
     )
 }

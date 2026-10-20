@@ -5,9 +5,11 @@ import { fetchPosts, fetchPostsIniciais } from "../lib/data";
 import ObserverTarget from "./observer";
 import PostComponent from "./post";
 import { useEffect } from "react";
+import EditPostModal from "./editPostModal";
 
 export default function PostScroll({id} : {id?: string}){
 
+    const [modal, setModal] = useState<boolean>(false);
     const [posts, setPosts] = useState<PostComProjeto[]>([]);
     const [ultimoId, setultimoId] = useState<string | undefined>(undefined);
 
@@ -36,11 +38,19 @@ export default function PostScroll({id} : {id?: string}){
 
     return(
         <div>
+            <button onClick={() => setModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 hover:bg-blue-600 hover:cursor-pointer transition-colors">
+                Adicionar publicação
+            </button>
             {posts.map((post) => {
                 return(
                     <PostComponent key={post.id} post={post}/>
                 )
             })}
+            {modal && (
+                <EditPostModal
+                    setModal={setModal}
+                />
+            )}
             <ObserverTarget onIntersect={carregarPosts}/>
         </div>
     )

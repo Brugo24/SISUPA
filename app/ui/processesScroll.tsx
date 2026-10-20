@@ -4,9 +4,11 @@ import { ProcessWithProject } from "../lib/definitions";
 import { FetchInitialSelectionProcesses, FetchSelectionProcesses } from "../lib/data";
 import { useEffect, useState } from "react";
 import ObserverTarget from "./observer";
+import EditSelectionProcessModal from "./editSelectionProcessModal";
 
 export default function ProcessesScroll({query} : {query : string}) {
 
+    const [modal, setModal] = useState<boolean>(false);
     const[processes,setProcesses] = useState<ProcessWithProject[]>([]);
     const[lastId, setLastId] = useState<string>();
 
@@ -37,13 +39,23 @@ export default function ProcessesScroll({query} : {query : string}) {
     }
 
     return(
-        <div className="mt-6 flex flex-1 flex-row flex-wrap">
+        <div>
+            <button onClick={() => setModal(true)} className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 hover:bg-blue-600 hover:cursor-pointer transition-colors">
+                Abrir processo seletivo
+            </button>
+            <div className="mt-6 flex flex-1 flex-row flex-wrap">
             {processes && processes.map((process,index) => {
                 return (<div className="m-2" key={index}>
                     <SelectionProcessCard process={process}/>
                 </div>)
             })}
+            {modal && (
+                <EditSelectionProcessModal
+                    setModal={setModal}
+                />
+            )}
             <ObserverTarget onIntersect={carregarProjetos}/>
+        </div>
         </div>
     )
 }
