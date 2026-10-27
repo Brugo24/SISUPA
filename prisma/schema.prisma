@@ -81,6 +81,7 @@ model ProcessoSeletivo {
   inscricao  String
   dataLimite DateTime @map("data_limite")
   postadoEm DateTime @default(now()) @map("postado_em")
+  imagem     String?     
 
   // Relação: Um Processo Seletivo pertence a um Projeto
   projeto    Projeto  @relation(fields: [projetoId], references: [id])

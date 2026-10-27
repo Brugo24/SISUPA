@@ -129,7 +129,8 @@ export const ProcessoSeletivoScalarFieldEnum = {
   descricao: 'descricao',
   inscricao: 'inscricao',
   dataLimite: 'dataLimite',
-  postadoEm: 'postadoEm'
+  postadoEm: 'postadoEm',
+  imagem: 'imagem'
 } as const
 
 export type ProcessoSeletivoScalarFieldEnum = (typeof ProcessoSeletivoScalarFieldEnum)[keyof typeof ProcessoSeletivoScalarFieldEnum]

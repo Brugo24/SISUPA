@@ -32,6 +32,7 @@ export type ProcessoSeletivoMinAggregateOutputType = {
   inscricao: string | null
   dataLimite: Date | null
   postadoEm: Date | null
+  imagem: string | null
 }
 
 export type ProcessoSeletivoMaxAggregateOutputType = {
@@ -42,6 +43,7 @@ export type ProcessoSeletivoMaxAggregateOutputType = {
   inscricao: string | null
   dataLimite: Date | null
   postadoEm: Date | null
+  imagem: string | null
 }
 
 export type ProcessoSeletivoCountAggregateOutputType = {
@@ -52,6 +54,7 @@ export type ProcessoSeletivoCountAggregateOutputType = {
   inscricao: number
   dataLimite: number
   postadoEm: number
+  imagem: number
   _all: number
 }
 
@@ -64,6 +67,7 @@ export type ProcessoSeletivoMinAggregateInputType = {
   inscricao?: true
   dataLimite?: true
   postadoEm?: true
+  imagem?: true
 }
 
 export type ProcessoSeletivoMaxAggregateInputType = {
@@ -74,6 +78,7 @@ export type ProcessoSeletivoMaxAggregateInputType = {
   inscricao?: true
   dataLimite?: true
   postadoEm?: true
+  imagem?: true
 }
 
 export type ProcessoSeletivoCountAggregateInputType = {
@@ -84,6 +89,7 @@ export type ProcessoSeletivoCountAggregateInputType = {
   inscricao?: true
   dataLimite?: true
   postadoEm?: true
+  imagem?: true
   _all?: true
 }
 
@@ -167,6 +173,7 @@ export type ProcessoSeletivoGroupByOutputType = {
   inscricao: string
   dataLimite: Date
   postadoEm: Date
+  imagem: string | null
   _count: ProcessoSeletivoCountAggregateOutputType | null
   _min: ProcessoSeletivoMinAggregateOutputType | null
   _max: ProcessoSeletivoMaxAggregateOutputType | null
@@ -198,6 +205,7 @@ export type ProcessoSeletivoWhereInput = {
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   dataLimite?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
   postadoEm?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
+  imagem?: Prisma.StringNullableFilter<"ProcessoSeletivo"> | string | null
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }
 
@@ -209,6 +217,7 @@ export type ProcessoSeletivoOrderByWithRelationInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
+  imagem?: Prisma.SortOrderInput | Prisma.SortOrder
   projeto?: Prisma.ProjetoOrderByWithRelationInput
 }
 
@@ -223,6 +232,7 @@ export type ProcessoSeletivoWhereUniqueInput = Prisma.AtLeast<{
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   dataLimite?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
   postadoEm?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
+  imagem?: Prisma.StringNullableFilter<"ProcessoSeletivo"> | string | null
   projeto?: Prisma.XOR<Prisma.ProjetoScalarRelationFilter, Prisma.ProjetoWhereInput>
 }, "id">
 
@@ -234,6 +244,7 @@ export type ProcessoSeletivoOrderByWithAggregationInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
+  imagem?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ProcessoSeletivoCountOrderByAggregateInput
   _max?: Prisma.ProcessoSeletivoMaxOrderByAggregateInput
   _min?: Prisma.ProcessoSeletivoMinOrderByAggregateInput
@@ -250,6 +261,7 @@ export type ProcessoSeletivoScalarWhereWithAggregatesInput = {
   inscricao?: Prisma.StringWithAggregatesFilter<"ProcessoSeletivo"> | string
   dataLimite?: Prisma.DateTimeWithAggregatesFilter<"ProcessoSeletivo"> | Date | string
   postadoEm?: Prisma.DateTimeWithAggregatesFilter<"ProcessoSeletivo"> | Date | string
+  imagem?: Prisma.StringNullableWithAggregatesFilter<"ProcessoSeletivo"> | string | null
 }
 
 export type ProcessoSeletivoCreateInput = {
@@ -259,6 +271,7 @@ export type ProcessoSeletivoCreateInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
   projeto: Prisma.ProjetoCreateNestedOneWithoutProcessosSeletivosInput
 }
 
@@ -270,6 +283,7 @@ export type ProcessoSeletivoUncheckedCreateInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
 }
 
 export type ProcessoSeletivoUpdateInput = {
@@ -279,6 +293,7 @@ export type ProcessoSeletivoUpdateInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projeto?: Prisma.ProjetoUpdateOneRequiredWithoutProcessosSeletivosNestedInput
 }
 
@@ -290,6 +305,7 @@ export type ProcessoSeletivoUncheckedUpdateInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProcessoSeletivoCreateManyInput = {
@@ -300,6 +316,7 @@ export type ProcessoSeletivoCreateManyInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
 }
 
 export type ProcessoSeletivoUpdateManyMutationInput = {
@@ -309,6 +326,7 @@ export type ProcessoSeletivoUpdateManyMutationInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProcessoSeletivoUncheckedUpdateManyInput = {
@@ -319,6 +337,7 @@ export type ProcessoSeletivoUncheckedUpdateManyInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProcessoSeletivoListRelationFilter = {
@@ -339,6 +358,7 @@ export type ProcessoSeletivoCountOrderByAggregateInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
+  imagem?: Prisma.SortOrder
 }
 
 export type ProcessoSeletivoMaxOrderByAggregateInput = {
@@ -349,6 +369,7 @@ export type ProcessoSeletivoMaxOrderByAggregateInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
+  imagem?: Prisma.SortOrder
 }
 
 export type ProcessoSeletivoMinOrderByAggregateInput = {
@@ -359,6 +380,7 @@ export type ProcessoSeletivoMinOrderByAggregateInput = {
   inscricao?: Prisma.SortOrder
   dataLimite?: Prisma.SortOrder
   postadoEm?: Prisma.SortOrder
+  imagem?: Prisma.SortOrder
 }
 
 export type ProcessoSeletivoCreateNestedManyWithoutProjetoInput = {
@@ -410,6 +432,7 @@ export type ProcessoSeletivoCreateWithoutProjetoInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
 }
 
 export type ProcessoSeletivoUncheckedCreateWithoutProjetoInput = {
@@ -419,6 +442,7 @@ export type ProcessoSeletivoUncheckedCreateWithoutProjetoInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
 }
 
 export type ProcessoSeletivoCreateOrConnectWithoutProjetoInput = {
@@ -458,6 +482,7 @@ export type ProcessoSeletivoScalarWhereInput = {
   inscricao?: Prisma.StringFilter<"ProcessoSeletivo"> | string
   dataLimite?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
   postadoEm?: Prisma.DateTimeFilter<"ProcessoSeletivo"> | Date | string
+  imagem?: Prisma.StringNullableFilter<"ProcessoSeletivo"> | string | null
 }
 
 export type ProcessoSeletivoCreateManyProjetoInput = {
@@ -467,6 +492,7 @@ export type ProcessoSeletivoCreateManyProjetoInput = {
   inscricao: string
   dataLimite: Date | string
   postadoEm?: Date | string
+  imagem?: string | null
 }
 
 export type ProcessoSeletivoUpdateWithoutProjetoInput = {
@@ -476,6 +502,7 @@ export type ProcessoSeletivoUpdateWithoutProjetoInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProcessoSeletivoUncheckedUpdateWithoutProjetoInput = {
@@ -485,6 +512,7 @@ export type ProcessoSeletivoUncheckedUpdateWithoutProjetoInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ProcessoSeletivoUncheckedUpdateManyWithoutProjetoInput = {
@@ -494,6 +522,7 @@ export type ProcessoSeletivoUncheckedUpdateManyWithoutProjetoInput = {
   inscricao?: Prisma.StringFieldUpdateOperationsInput | string
   dataLimite?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   postadoEm?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  imagem?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -506,6 +535,7 @@ export type ProcessoSeletivoSelect<ExtArgs extends runtime.Types.Extensions.Inte
   inscricao?: boolean
   dataLimite?: boolean
   postadoEm?: boolean
+  imagem?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["processoSeletivo"]>
 
@@ -517,6 +547,7 @@ export type ProcessoSeletivoSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   inscricao?: boolean
   dataLimite?: boolean
   postadoEm?: boolean
+  imagem?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["processoSeletivo"]>
 
@@ -528,6 +559,7 @@ export type ProcessoSeletivoSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   inscricao?: boolean
   dataLimite?: boolean
   postadoEm?: boolean
+  imagem?: boolean
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["processoSeletivo"]>
 
@@ -539,9 +571,10 @@ export type ProcessoSeletivoSelectScalar = {
   inscricao?: boolean
   dataLimite?: boolean
   postadoEm?: boolean
+  imagem?: boolean
 }
 
-export type ProcessoSeletivoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projetoId" | "titulo" | "descricao" | "inscricao" | "dataLimite" | "postadoEm", ExtArgs["result"]["processoSeletivo"]>
+export type ProcessoSeletivoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "projetoId" | "titulo" | "descricao" | "inscricao" | "dataLimite" | "postadoEm" | "imagem", ExtArgs["result"]["processoSeletivo"]>
 export type ProcessoSeletivoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   projeto?: boolean | Prisma.ProjetoDefaultArgs<ExtArgs>
 }
@@ -565,6 +598,7 @@ export type $ProcessoSeletivoPayload<ExtArgs extends runtime.Types.Extensions.In
     inscricao: string
     dataLimite: Date
     postadoEm: Date
+    imagem: string | null
   }, ExtArgs["result"]["processoSeletivo"]>
   composites: {}
 }
@@ -996,6 +1030,7 @@ export interface ProcessoSeletivoFieldRefs {
   readonly inscricao: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
   readonly dataLimite: Prisma.FieldRef<"ProcessoSeletivo", 'DateTime'>
   readonly postadoEm: Prisma.FieldRef<"ProcessoSeletivo", 'DateTime'>
+  readonly imagem: Prisma.FieldRef<"ProcessoSeletivo", 'String'>
 }
     
 
